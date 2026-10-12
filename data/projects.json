@@ -3,30 +3,40 @@
     "title": "Bootstrap Project",
     "description": "A responsive front-end project built with Bootstrap, custom CSS, and JavaScript.",
     "stack": ["HTML", "CSS", "Bootstrap", "JavaScript"],
-    "url": "https://github.com/mohammed-abd-elhafez/bootsrap-project"
+    "url": "https://github.com/mohammed-abd-elhafez/bootsrap-project",
+    "liveUrl": "https://mohammed-abd-elhafez.github.io/bootsrap-project/",
+    "image": "https://raw.githubusercontent.com/mohammed-abd-elhafez/bootsrap-project/main/imgs/IMG_20211107_232311.jpg"
   },
   {
     "title": "Casper Landing Page",
     "description": "A responsive landing page with a visual editorial layout, media sections, and reusable UI patterns.",
     "stack": ["HTML", "CSS", "JavaScript"],
-    "url": "https://github.com/mohammed-abd-elhafez/casper-30-12-2022"
+    "url": "https://github.com/mohammed-abd-elhafez/casper-30-12-2022",
+    "liveUrl": "https://mohammed-abd-elhafez.github.io/casper-30-12-2022/",
+    "image": "https://raw.githubusercontent.com/mohammed-abd-elhafez/casper-30-12-2022/main/IMAGES/stats.jpg"
   },
   {
     "title": "The First Project",
     "description": "A front-end practice project focused on responsive layout, typography, and polished CSS details.",
     "stack": ["HTML", "CSS", "JavaScript"],
-    "url": "https://github.com/mohammed-abd-elhafez/the-first-project-2-11-2022"
+    "url": "https://github.com/mohammed-abd-elhafez/the-first-project-2-11-2022",
+    "liveUrl": "https://mohammed-abd-elhafez.github.io/the-first-project-2-11-2022/",
+    "image": "https://raw.githubusercontent.com/mohammed-abd-elhafez/the-first-project-2-11-2022/main/images/space-empty-wood-floor-plant.jpg"
   },
   {
     "title": "Elzero Template 3",
     "description": "A multi-section responsive website template with gallery, testimonials, pricing, and interactive sections.",
     "stack": ["HTML", "CSS", "Bootstrap", "JavaScript"],
-    "url": "https://github.com/mohammed-abd-elhafez/ELZERO-TEMPLATE-3"
+    "url": "https://github.com/mohammed-abd-elhafez/ELZERO-TEMPLATE-3",
+    "liveUrl": "https://mohammed-abd-elhafez.github.io/ELZERO-TEMPLATE-3/",
+    "image": "https://raw.githubusercontent.com/mohammed-abd-elhafez/ELZERO-TEMPLATE-3/the-main/ELZERO%20TEMPLATE%203/imgs/landing/landing-image.png"
   },
   {
     "title": "New E-Commerce",
     "description": "A front-end e-commerce experience with product views, categories, cart UI, JSON data, and interactive JavaScript modules.",
     "stack": ["HTML", "CSS", "JavaScript", "JSON"],
-    "url": "https://github.com/mohammed-abd-elhafez/NEW-E-COMMERCE"
+    "url": "https://github.com/mohammed-abd-elhafez/NEW-E-COMMERCE",
+    "liveUrl": "https://mohammed-abd-elhafez.github.io/NEW-E-COMMERCE/",
+    "image": "https://raw.githubusercontent.com/mohammed-abd-elhafez/NEW-E-COMMERCE/the-main/All_Images/IMGS/HERO.webp"
   }
 ]

@@ -11,7 +11,9 @@ The Work section is rendered from `data/projects.json`. To add a future project,
   "title": "Project name",
   "description": "One concise description.",
   "stack": ["HTML", "CSS", "JavaScript"],
-  "url": "https://github.com/username/repository"
+  "url": "https://github.com/username/repository",
+  "liveUrl": "https://username.github.io/repository/",
+  "image": "https://raw.githubusercontent.com/username/repository/main/preview.jpg"
 }
 ```
 
