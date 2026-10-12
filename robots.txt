@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /thank-you.html
+#SITEMAP Sitemap: https://[YOUR-DOMAIN]/sitemap.xml
