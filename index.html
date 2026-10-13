@@ -304,7 +304,7 @@ f.onsubmit=async e=>{e.preventDefault();if(!validate())return;
  if(!CONFIG.endpoint){if(!ok(CONFIG.email)){location.href=CONFIG.upwork;return}location.href=`mailto:${CONFIG.email}?subject=${encodeURIComponent("Project enquiry: "+d.type)}&body=${encodeURIComponent(d.message+"\n\n"+d.name+" ("+d.email+")")}`;return}
  f.setAttribute("aria-busy",true);const b=$("button[type=submit]",f);b.disabled=true;$("#sl").textContent="Sending…";
  try{const payload=new FormData(f);payload.delete("website");const r=await fetch(CONFIG.endpoint,{method:"POST",headers:{Accept:"application/json"},body:payload});if(!r.ok)throw 0;
-  status.textContent=`Thanks. Your message is sent and I'll reply within ${CONFIG.responseTime} on business days.`;status.focus();f.reset();setTimeout(()=>location.href="/thank-you.html",1500)}
+  status.textContent=`Thanks. Your message is sent and I'll reply within ${CONFIG.responseTime} on business days.`;status.focus();f.reset();setTimeout(()=>location.href="thank-you.html",1500)}
  catch{status.textContent=`Your message didn't send. Try again, or email ${CONFIG.email} directly.`;status.focus()}
  finally{f.removeAttribute("aria-busy");b.disabled=false;$("#sl").textContent="Send message"}};
 
