@@ -17,7 +17,7 @@ The Work section is rendered from `data/projects.json`. To add a future project,
 }
 ```
 
-The Upwork buttons point to Mohamed's public profile and are configured in `index.html` under `CONFIG.upwork`. The contact form sends enquiries to `mohamedthedev88@gmail.com` through FormSubmit; the first submission may require confirming the activation email. WhatsApp is configured in `CONFIG.whatsapp` with the international number `201034605431`.
+The Upwork buttons point to Mohamed's public profile and are configured in `index.html` under `CONFIG.upwork`. The contact form sends enquiries to `Abdelmohammed348@gmail.com` through FormSubmit; the first submission may require confirming the activation email. WhatsApp is configured in `CONFIG.whatsapp` with the international number `201034605431`.
 
 ## Before going live
 0. **Domain:** run `sh set-domain.sh yourdomain.com` once. It fills in canonical tags, the sitemap and robots.txt (they stay inactive until then so nothing invalid ships).
