@@ -7,7 +7,17 @@
  {
   "title": "Selected work",
   "url": "/case-studies/",
-  "text": "case studies projects"
+  "text": "case studies projects Flutter Dart task manager expense tracker"
+ },
+ {
+  "title": "Task Manager",
+  "url": "/case-studies/task-manager.html",
+  "text": "Flutter Dart Material 3 feature-first task dashboard workflow filters progress status priority mock data GitHub Pages"
+ },
+ {
+  "title": "Expense Tracker",
+  "url": "/case-studies/expense-tracker.html",
+  "text": "Flutter Dart Material 3 expense dashboard demo budget category filters validation empty state ChangeNotifier mock data GitHub Pages"
  },
  {
   "title": "How we'd work together",

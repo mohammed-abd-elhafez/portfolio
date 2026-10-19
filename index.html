@@ -155,7 +155,7 @@ html.lenis{scroll-behavior:auto}
 <main id="main">
 <section class="hero" id="top"><div class="wrap">
 <h1>I engineer fast, scalable products that look as good as they run.</h1>
-<p class="lead">Freelance software developer for web apps, APIs and Android. I work remotely and ship in clear milestones.</p>
+<p class="lead">Freelance software developer for web apps, APIs, Android and Flutter. I work remotely and ship in clear milestones.</p>
 <div class="cta"><a class="btn primary" data-upwork href="#contact">Hire me</a><a class="btn" href="#contact">Start a project</a></div>
 <p class="meta mono"><span><i class="dot"></i>Availability: open for selected projects</span><span data-resp></span></p>
 </div><div class="orb" aria-hidden="true"><canvas id="gl"></canvas></div></section>
@@ -175,7 +175,7 @@ html.lenis{scroll-behavior:auto}
 <li>Front-end and back-end development<span>Either side, or both.</span></li>
 <li>REST API integration and backend services<span>Third-party services wired in cleanly.</span></li>
 <li>Responsive, maintainable interfaces<span>Accessible, fast and easy to extend.</span></li>
-<li>Android apps<span>Kotlin or Java, native.</span></li>
+<li>Android and Flutter apps<span>Native Android or cross-platform Flutter.</span></li>
 <li>Bug fixing, performance and new features<span>Into code you already have.</span></li>
 <li>Database-driven apps and integrations<span>SQL or NoSQL, as the project needs.</span></li>
 </ul>
@@ -201,7 +201,7 @@ html.lenis{scroll-behavior:auto}
 <section id="faq"><div class="wrap">
 <h2>Questions, answered</h2>
 <div class="rv" id="faqs">
-<details><summary>What do you build, and which stacks?</summary><p>Web apps, REST APIs and Android apps. I mainly use JavaScript, TypeScript, React, Node.js, SQL/NoSQL databases, and Kotlin/Java for Android.</p></details>
+<details><summary>What do you build, and which stacks?</summary><p>Web apps, REST APIs, Android apps and Flutter apps. I mainly use JavaScript, TypeScript, React, Node.js, SQL/NoSQL databases, Dart and Kotlin/Java.</p></details>
 <details><summary>How does working with you start, and how are projects scoped and priced?</summary><p>You send a short description through the form or Upwork. We talk through scope, then I propose milestones with a price for each.</p></details>
 <details><summary>How do milestones, payments and revisions work?</summary><p>Each milestone has a defined deliverable. Payment follows milestone approval, and revisions within the agreed scope are included in the written agreement.</p></details>
 <details><summary>How fast do you respond, and what are your hours?</summary><p>I reply within <span data-resp-time></span> on business days. I'm based in Egypt and work remotely.</p></details>
@@ -254,12 +254,12 @@ const CONFIG={
  lastUpdated:"2026-10-12", tz:"Africa/Cairo",
  stats:{},                                                   // e.g. {"Projects delivered":12}; empty hides the row
  reviews:[],                                                 // real Upwork reviews only: {name,text,url}
- skills:["JavaScript","TypeScript","React","Node.js","REST APIs","SQL / NoSQL","Kotlin","Java","HTML / CSS","Git"]
+ skills:["Flutter","Dart","JavaScript","TypeScript","React","Node.js","REST APIs","SQL / NoSQL","Kotlin","Java","HTML / CSS","Git"]
 };
 const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)],ok=v=>v&&!v.startsWith("[");
 const rm=matchMedia("(prefers-reduced-motion:reduce)").matches;
 const esc=v=>String(v??"").replace(/[&<>\"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[m]));
-async function loadProjects(){const track=$("#projects-track");try{const r=await fetch("data/projects.json",{cache:"no-store"});if(!r.ok)throw 0;const projects=await r.json();if(!Array.isArray(projects)||!projects.length)throw 0;track.innerHTML=projects.map(p=>`<article class="case project-card">${p.image?`<img class="project-visual" src="${esc(p.image)}" alt="Preview of ${esc(p.title||p.name)}" loading="lazy" decoding="async">`:""}<div class="project-kicker">GitHub project</div><h3>${esc(p.title||p.name)}</h3><p>${esc(p.description||"A selected project from my GitHub portfolio.")}</p><div class="project-stack">${(p.stack||[]).map(s=>`<span>${esc(s)}</span>`).join("")}</div><div class="project-links"><a href="${esc(p.url)}" target="_blank" rel="noopener noreferrer">View repository ↗</a>${p.liveUrl?`<a class="btn primary" href="${esc(p.liveUrl)}" target="_blank" rel="noopener noreferrer">Open project online ↗</a>`:""}</div></article>`).join("")}catch(e){track.innerHTML='<div class="project-empty">Projects are being updated. Visit <a href="https://github.com/mohammed-abd-elhafez" target="_blank" rel="noopener noreferrer">my GitHub profile ↗</a>.</div>'}}
+async function loadProjects(){const track=$("#projects-track");try{const r=await fetch("data/projects.json",{cache:"no-store"});if(!r.ok)throw 0;const projects=await r.json();if(!Array.isArray(projects)||!projects.length)throw 0;track.innerHTML=projects.map(p=>`<article class="case project-card">${p.image?`<img class="project-visual" src="${esc(p.image)}" alt="Preview of ${esc(p.title||p.name)}" loading="lazy" decoding="async">`:""}<div class="project-kicker">GitHub project</div><h3>${esc(p.title||p.name)}</h3><p>${esc(p.description||"A selected project from my GitHub portfolio.")}</p><div class="project-stack">${(p.stack||[]).map(s=>`<span>${esc(s)}</span>`).join("")}</div><div class="project-links"><a href="${esc(p.url)}" target="_blank" rel="noopener noreferrer">View repository ↗</a>${p.liveUrl?`<a class="btn primary" href="${esc(p.liveUrl)}" target="_blank" rel="noopener noreferrer">Open project online ↗</a>`:""}${p.caseStudyUrl?`<a href="${esc(p.caseStudyUrl)}">Read case study ↗</a>`:""}</div></article>`).join("")}catch(e){track.innerHTML='<div class="project-empty">Projects are being updated. Visit <a href="https://github.com/mohammed-abd-elhafez" target="_blank" rel="noopener noreferrer">my GitHub profile ↗</a>.</div>'}}
 loadProjects();
 $$("[data-resp]").forEach(e=>e.textContent=`I reply within ${CONFIG.responseTime} on business days.`);
 $$("[data-resp-time]").forEach(e=>e.textContent=CONFIG.responseTime+" on business days");

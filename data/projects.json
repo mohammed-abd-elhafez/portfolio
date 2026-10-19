@@ -38,5 +38,23 @@
     "url": "https://github.com/mohammed-abd-elhafez/NEW-E-COMMERCE",
     "liveUrl": "https://mohammed-abd-elhafez.github.io/NEW-E-COMMERCE/",
     "image": "https://raw.githubusercontent.com/mohammed-abd-elhafez/NEW-E-COMMERCE/the-main/All_Images/IMGS/HERO.webp"
+  },
+  {
+    "title": "Task Manager",
+    "description": "A feature-first Flutter task dashboard with status filters, progress summaries, accessible workflow actions, and a documented mock-data repository boundary.",
+    "stack": ["Flutter", "Dart", "Material 3", "GitHub Pages"],
+    "url": "https://github.com/mohammed-abd-elhafez/flutter-task-manager",
+    "liveUrl": "https://mohammed-abd-elhafez.github.io/flutter-task-manager/",
+    "caseStudyUrl": "case-studies/task-manager.html",
+    "image": "assets/img/projects/task-manager-preview.webp"
+  },
+  {
+    "title": "Expense Tracker",
+    "description": "A focused Flutter expense dashboard with a demo budget summary, category filtering, validated expense entry, empty states, and testable state management.",
+    "stack": ["Flutter", "Dart", "Material 3", "GitHub Pages"],
+    "url": "https://github.com/mohammed-abd-elhafez/flutter-expense-tracker",
+    "liveUrl": "https://mohammed-abd-elhafez.github.io/flutter-expense-tracker/",
+    "caseStudyUrl": "case-studies/expense-tracker.html",
+    "image": "assets/img/projects/expense-tracker-preview.webp"
   }
 ]
