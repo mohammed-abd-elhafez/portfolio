@@ -1,36 +1,40 @@
-# Mohamed Abd Elhafez: portfolio
+# Mohamed Abd Elhafez — portfolio
 
-Static site. Deploy the folder as-is to Netlify, Vercel, Cloudflare Pages or GitHub Pages (root of a domain, since inner pages use absolute paths).
+Static portfolio site for [Mohamed Abd Elhafez](https://github.com/mohammed-abd-elhafez), deployed from this repository through GitHub Pages.
 
-## Updating GitHub projects
+## What is included
 
-The Work section is rendered from `data/projects.json`. To add a future project, append an object with:
+- Responsive landing page with light/dark theme support.
+- Current snapshot of the 11 public repositories on the GitHub profile, sourced from the account on 2026-10-20.
+- Local, optimized project preview assets so the site does not depend on external image hosts.
+- Case studies for the selected web and Flutter projects.
+- Accessible contact form with validation, FormSubmit delivery, email fallback, and privacy links.
+- SEO metadata, JSON-LD, valid sitemap, robots rules, manifest, and static security headers.
 
-```json
-{
-  "title": "Project name",
-  "description": "One concise description.",
-  "stack": ["HTML", "CSS", "JavaScript"],
-  "url": "https://github.com/username/repository",
-  "liveUrl": "https://username.github.io/repository/",
-  "caseStudyUrl": "case-studies/project-name.html",
-  "image": "assets/img/projects/preview.webp"
-}
+## Updating projects
+
+The Work section is rendered from `data/projects.json`. Each entry contains the repository URL and may include a live demo, case study URL, local preview image, description, and stack. Keep descriptions factual and do not add fabricated metrics or testimonials.
+
+When the GitHub account changes, update the snapshot from the public repository metadata and keep the repository count in `index.html` synchronized with the data file.
+
+## Contact configuration
+
+The editable configuration is near the top of the script in `index.html`:
+
+- `email` — contact address.
+- `whatsapp` — international phone number used by the WhatsApp CTA.
+- `upwork` — public Upwork profile URL.
+- `endpoint` — FormSubmit AJAX endpoint.
+- `responseTime` and `tz` — availability copy and Cairo timezone.
+
+The legal pages are informational templates, not legal advice. Review them for the final business setup before relying on them.
+
+## Local preview
+
+Because this is a static site, serve the repository root with any static server, for example:
+
+```sh
+python3 -m http.server 4173
 ```
 
-The Upwork buttons point to Mohamed's public profile and are configured in `index.html` under `CONFIG.upwork`. The contact form sends enquiries to `Abdelmohammed348@gmail.com` through FormSubmit; the first submission may require confirming the activation email. WhatsApp is configured in `CONFIG.whatsapp` with the international number `201034605431`.
-
-## Before going live
-0. **Domain:** run `sh set-domain.sh yourdomain.com` once. It fills in canonical tags, the sitemap and robots.txt (they stay inactive until then so nothing invalid ships).
-1. **Fonts:** run `sh assets/fonts/get-fonts.sh` once (needs internet). It downloads the WOFF2 files and writes `assets/css/fonts.css`. Until then the site uses fallback fonts and makes no failing requests.
-2. **Edit `CONFIG`** at the top of the `<script>` in `index.html`: email, Upwork URL, form endpoint, response time, stats, reviews.
-3. **Replace every `[PLACEHOLDER]`** (search the folder for `[`): `[YOUR-DOMAIN]`, `[EMAIL]`, `[LEGAL NAME / TRADING NAME]`, `[EDITABLE: ...]`, `[REAL PROJECT DATA REQUIRED]`.
-4. **Photo:** already added (`assets/img/mohamed.webp`). To change it, replace that file (800x1000) and its 400px copy.
-5. **Case studies:** duplicate `case-studies/example-project.html` per real project and add it to `sitemap.xml` and `search-index.json`.
-6. **Legal pages** are templates, not legal advice. Have them reviewed.
-7. In `_headers`, replace `[YOUR-FORM-ENDPOINT-ORIGIN]` with your form provider's origin.
-
-## Performance notes
-- CSS is inline; the hero heading is plain text so it paints immediately. The 0.7s preloader runs once per session.
-- GSAP, Lenis and Three.js load only after the first interaction (or 4 seconds), never during the initial load. Phones, Save-Data and reduced-motion get the static gradient hero.
-- If you change the form provider, update `connect-src` in `_headers`.
+Then open `http://localhost:4173/`.
