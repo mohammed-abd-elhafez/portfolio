@@ -40,7 +40,6 @@
     "description": "A front-end e-commerce experience with product views, categories, cart UI, JSON data and interactive JavaScript modules.",
     "stack": ["HTML", "CSS", "JavaScript", "JSON"],
     "url": "https://github.com/mohammed-abd-elhafez/NEW-E-COMMERCE",
-    "liveUrl": "https://mohammed-abd-elhafez.github.io/NEW-E-COMMERCE/",
     "caseStudyUrl": "case-studies/new-e-commerce.html",
     "image": "assets/img/projects/new-e-commerce.webp"
   },

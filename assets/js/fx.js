@@ -276,7 +276,7 @@
             var f = doc.createElement('iframe'), sameOrigin = false;
             try { sameOrigin = new URL(d.liveUrl).origin === location.origin; } catch (e) {}
             frame = f; f.loading = 'lazy'; f.tabIndex = -1; f.title = ''; f.setAttribute('aria-hidden', 'true'); f.referrerPolicy = 'no-referrer';
-            f.setAttribute('sandbox', sameOrigin ? 'allow-scripts allow-same-origin' : 'allow-scripts');
+            f.setAttribute('sandbox', 'allow-scripts allow-same-origin');
             f.onload = function () {
               if (f !== frame) return;
               if (!reduce && !(sameOrigin && autoScroll(f))) f.classList.add('pan');
