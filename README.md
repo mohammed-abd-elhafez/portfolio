@@ -43,3 +43,8 @@ python3 -m http.server 4173
 ```
 
 Then open `http://localhost:4173/`.
+
+## Adding a project
+Add one entry to `data/projects.json`; no code changes needed. A card appears automatically (if the repo is not already listed in `WK` in `index.html`) and the telescope preview works for it.
+Fields: `title`, `url` (GitHub repo, https), `stack` (array), optional `liveUrl` (https://<user>.github.io/...), optional `image` (screenshot path, shown first).
+Hovering a card fires the projector beam: screenshot first, then the live page with auto-scroll.

@@ -9,7 +9,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#070b14;--fg:#eef2f7;--mut:#8b95a7;--line:#1c2538;--card:rgba(14,20,34,.72);--acc:#5eead4;--accfg:#04120f;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f3f5f9;--fg:#0c1220;--mut:#586175;--line:#d5dbe7;--card:rgba(255,255,255,.78);--acc:#2457ff;--accfg:#fff;color-scheme:light}}
 :root[data-theme="light"]{--bg:#f3f5f9;--fg:#0c1220;--mut:#586175;--line:#d5dbe7;--card:rgba(255,255,255,.78);--acc:#2457ff;--accfg:#fff;color-scheme:light}
 :root[data-theme="dark"]{--bg:#070b14;--fg:#eef2f7;--mut:#8b95a7;--line:#1c2538;--card:rgba(14,20,34,.72);--acc:#5eead4;--accfg:#04120f;color-scheme:dark}
 *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:70px}
@@ -62,6 +61,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 @media(max-width:820px){.grid,.steps,.two{grid-template-columns:1fr}nav .l a.h{display:none}section{padding:64px 0}.card,form,nav{backdrop-filter:none}#gl{display:none}#wk .card{transition:transform .2s,border-color .2s}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}html{scroll-behavior:auto}}
 </style>
+<link rel="stylesheet" href="assets/css/fx.css?v=7">
 </head>
 <body>
 <canvas id="gl" aria-hidden="true"></canvas>
@@ -130,7 +130,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 var R=document.documentElement,$=function(s){return document.querySelector(s)};
 var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
 try{var t=localStorage.getItem('theme');if(t)R.setAttribute('data-theme',t)}catch(e){}
-$('#th').onclick=function(){var c=R.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme:light)').matches?'light':'dark'),n=c==='dark'?'light':'dark';R.setAttribute('data-theme',n);try{localStorage.setItem('theme',n)}catch(e){}};
+$('#th').onclick=function(){var c=R.getAttribute('data-theme')||'dark',n=c==='dark'?'light':'dark';R.setAttribute('data-theme',n);try{localStorage.setItem('theme',n)}catch(e){}};
 /* data */
 var SV=[['Full-stack web apps','End to end, from database to interface.'],['Front-end and back-end','Either side, or both.'],['REST APIs and services','Third-party services wired in cleanly.'],['Responsive interfaces','Accessible, fast and easy to extend.'],['Mobile apps','Flutter, SwiftUI and native product work.'],['Fixes and new features','Into code you already have.'],['Database-driven apps','SQL or NoSQL, as the project needs.']];
 var WK=[["FitnessTracker","Swift / SwiftUI"],["m-pizza","Flutter / Dart"],["flutter-expense-tracker","Flutter / Dart"],["flutter-task-manager","Flutter / Dart"],["flutter-starter-architecture","Flutter / Dart"],["NEW-E-COMMERCE","HTML / CSS"],["ELZERO-TEMPLATE-3","HTML / CSS"],["the-first-project-2-11-2022","HTML / CSS"],["casper-30-12-2022","HTML / CSS"],["bootsrap-project","HTML / CSS"],["e-commerce","HTML / CSS"]];
@@ -144,13 +144,24 @@ $('#fm').addEventListener('submit',function(e){e.preventDefault();var b='Name: '
 /* reveal + tilt */
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.1});
 document.querySelectorAll('.rv').forEach(function(e){io.observe(e)});
-var cards=document.querySelectorAll('.card');cards.forEach(function(c){c.addEventListener('pointermove',function(e){var b=c.getBoundingClientRect(),x=(e.clientX-b.left)/b.width,y=(e.clientY-b.top)/b.height;c.style.setProperty('--mx',x*100+'%');c.style.setProperty('--my',y*100+'%');if(!reduce){c.style.setProperty('--ry',(x-.5)*8+'deg');c.style.setProperty('--rx',(.5-y)*8+'deg')}});c.addEventListener('pointerleave',function(){c.style.setProperty('--rx','0deg');c.style.setProperty('--ry','0deg')})});
-var wk=$('#wk'),projectCards=wk.querySelectorAll('.card'),fine=matchMedia('(hover:hover) and (pointer:fine)').matches;
+function bindTilt(c){c.addEventListener('pointermove',function(e){var b=c.getBoundingClientRect(),x=(e.clientX-b.left)/b.width,y=(e.clientY-b.top)/b.height;c.style.setProperty('--mx',x*100+'%');c.style.setProperty('--my',y*100+'%');if(!reduce){c.style.setProperty('--ry',(x-.5)*8+'deg');c.style.setProperty('--rx',(.5-y)*8+'deg')}});c.addEventListener('pointerleave',function(){c.style.setProperty('--rx','0deg');c.style.setProperty('--ry','0deg')})}
+document.querySelectorAll('.card').forEach(bindTilt);
+var wk=$('#wk'),projectCards=[].slice.call(wk.querySelectorAll('.card')),fine=matchMedia('(hover:hover) and (pointer:fine)').matches;
 function activateProject(card){if(!fine)return;wk.classList.add('has-active');projectCards.forEach(function(item){item.classList.toggle('is-active',item===card)})}
 function clearProject(){wk.classList.remove('has-active');projectCards.forEach(function(item){item.classList.remove('is-active')})}
-projectCards.forEach(function(card){card.addEventListener('pointerenter',function(){activateProject(card)});card.addEventListener('pointerleave',clearProject);card.addEventListener('focusin',function(){activateProject(card)});card.addEventListener('focusout',function(){setTimeout(function(){if(!wk.querySelector(':focus'))clearProject()},0)})});
+function bindProject(card){card.addEventListener('pointerenter',function(){activateProject(card)});card.addEventListener('pointerleave',clearProject);card.addEventListener('focusin',function(){activateProject(card)});card.addEventListener('focusout',function(){setTimeout(function(){if(!wk.querySelector(':focus'))clearProject()},0)})}
+projectCards.forEach(bindProject);
+/* projects added only to data/projects.json appear automatically as cards (and get the telescope preview) */
+fetch('data/projects.json').then(function(r){return r.ok?r.json():[]}).then(function(list){var have={};projectCards.forEach(function(c){have[(c.getAttribute('href')||'').split('/').pop().toLowerCase()]=1});var added=0;
+(Array.isArray(list)?list:[]).forEach(function(p){var u=String(p&&p.url||''),slug=u.split('/').pop();if(!/^https:\/\/github\.com\//.test(u)||!slug||have[slug.toLowerCase()])return;have[slug.toLowerCase()]=1;
+var a=document.createElement('a');a.className='card rv in';a.target='_blank';a.rel='noopener noreferrer';a.href=u;
+var n=document.createElement('span');n.className='num';n.textContent='/'+pad(projectCards.length+1)+' · repo';
+var h=document.createElement('h3');h.className='serif';h.style.wordBreak='break-word';h.textContent=slug;
+var ch=document.createElement('div');ch.className='chips';var i1=document.createElement('i');i1.textContent=(p.stack||[]).slice(0,2).join(' / ')||'GitHub';var i2=document.createElement('i');i2.textContent='GitHub ↗';ch.appendChild(i1);ch.appendChild(i2);
+a.appendChild(n);a.appendChild(h);a.appendChild(ch);wk.appendChild(a);bindTilt(a);bindProject(a);projectCards.push(a);added++});
+if(added)document.dispatchEvent(new Event('projects:added'))}).catch(function(){});
 /* 3D scene: optional desktop enhancement, never part of the mobile critical path */
-function loadThree(done){var s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';s.async=true;s.onload=done;s.onerror=function(){};document.head.appendChild(s)}
+var threeQ=null;function loadThree(done){if(window.THREE)return done();if(threeQ)return threeQ.push(done);threeQ=[done];var s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';s.async=true;s.onload=function(){threeQ.splice(0).forEach(function(f){f()})};s.onerror=function(){threeQ=null};document.head.appendChild(s)}window.__loadThree=loadThree;
 function startScene(){var c=navigator.connection||navigator.mozConnection||navigator.webkitConnection,limited=matchMedia('(max-width:820px)').matches||matchMedia('(pointer:coarse)').matches||reduce||(c&&c.saveData)||((navigator.deviceMemory||8)<=2)||((navigator.hardwareConcurrency||8)<=2);if(limited)return;loadThree(function(){
 var cv=$('#gl'),ren;try{ren=new THREE.WebGLRenderer({canvas:cv,alpha:true,antialias:true})}catch(e){return}
 ren.setPixelRatio(Math.min(devicePixelRatio||1,1.5));
@@ -186,5 +197,6 @@ document.addEventListener('visibilitychange',function(){if(!document.hidden&&!ru
 if(!reduce){var idle=window.requestIdleCallback;idle?idle(startScene,{timeout:1800}):setTimeout(startScene,1200)}
 })();
 </script>
+<script src="assets/js/fx.js?v=7" defer></script>
 </body>
 </html>

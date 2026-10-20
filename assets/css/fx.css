@@ -1,0 +1,91 @@
+/* Desktop-only interaction layer: spyglass, neon portal, per-word hover, controls. */
+#fx-scope,#fx-portal{display:none}
+html.fx-on #fx-scope{display:block}
+html.fx-on #fx-portal{display:block}
+
+/* ---------- spyglass + controls (fixed, upper right, below the sticky nav) ---------- */
+#fx-scope{position:fixed;z-index:15;top:calc(68px + env(safe-area-inset-top,0px));right:max(16px,env(safe-area-inset-right,0px));--w:clamp(150px,15vw,220px);width:var(--w);pointer-events:none}
+.fx-view{position:relative;transition:opacity .35s ease,transform .35s ease,visibility 0s}
+.fx-view canvas{display:block;width:100%;aspect-ratio:1.12;pointer-events:none}
+#fx-scope[data-scope="off"] .fx-view{opacity:0;transform:translateY(-6px) scale(.97);visibility:hidden;transition:opacity .35s ease,transform .35s ease,visibility 0s .35s}
+.fx-cap{margin:2px 0 0;text-align:right;font-size:10px;line-height:1.3;color:var(--mut);letter-spacing:.04em;min-height:1.3em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fx-cap b{color:var(--acc);font-weight:500}
+
+/* telescope rig: the whole tube tips up slightly (front rises) while the projector is firing */
+.fx-rig{transform-origin:88% 52%;transition:transform .7s cubic-bezier(.34,1.56,.64,1)}
+.fx-view.firing .fx-rig{transform:rotate(5deg)}
+.fx-view .fx-beam{transition:transform .7s cubic-bezier(.34,1.56,.64,1)}
+.fx-view.firing .fx-beam{transform:translate(var(--dx,0px),var(--dy,calc(var(--w) * -.075)))}
+
+/* projector beam: ignites at the lens, sweeps open and lands on a screen showing the live page */
+.fx-beam{position:absolute;left:var(--lx,9%);top:var(--ly,36%);width:0;height:0;pointer-events:none;--sw:340px;--sh:212px;--cw:280px}
+.fx-flare{position:absolute;left:-46px;top:-46px;width:92px;height:92px;border-radius:50%;background:radial-gradient(circle,#fffbe0 0,rgba(255,226,110,.85) 22%,rgba(255,150,30,.35) 52%,transparent 72%);mix-blend-mode:screen;opacity:0;transform:scale(.2)}
+.fx-cone{position:absolute;right:0;top:-64px;width:var(--cw);height:var(--sh);transform-origin:100% 30%;transform:scaleX(.05);opacity:0;background:linear-gradient(to left,rgba(255,246,170,.95),rgba(255,214,90,.42) 18%,rgba(255,160,40,.2) 60%,rgba(255,140,30,.1));clip-path:polygon(100% 28%,0 0,0 100%,100% 33%);filter:blur(1.2px);mix-blend-mode:screen}
+.fx-cone::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(100deg,transparent 0 26px,rgba(255,255,255,.14) 34px,transparent 46px);background-size:200px 100%;opacity:.7}
+.fx-lens{position:absolute;right:calc(var(--cw) - 2px);top:-64px;width:var(--sw);height:var(--sh);border-radius:10px;overflow:hidden;opacity:0;transform-origin:100% 30%;background:#0a0f1d;box-shadow:0 0 0 1.5px rgba(255,214,90,.85),0 0 28px 4px rgba(255,170,40,.5),0 0 80px 14px rgba(255,120,20,.22)}
+/* static fallback (also what reduced-motion users get) */
+.fx-beam.on .fx-cone{transform:none;opacity:1}
+.fx-beam.on .fx-lens{opacity:1}
+.fx-beam.on .fx-flare{opacity:.6;transform:scale(.9)}
+/* cinematic sequence */
+.fx-beam.on .fx-flare{animation:fx-flare 1s ease-out both}
+.fx-beam.on .fx-cone{animation:fx-ignite .95s linear .12s both}
+.fx-beam.on .fx-cone::after{animation:fx-dust 2.6s linear infinite}
+.fx-beam.on .fx-lens{animation:fx-boot .7s cubic-bezier(.2,.8,.2,1) .42s both}
+.fx-beam.closing .fx-flare{animation:fx-cut .3s ease-in both}
+.fx-beam.closing .fx-cone{animation:fx-cut .3s ease-in both}
+.fx-beam.closing .fx-lens{animation:fx-shut .3s ease-in both}
+@keyframes fx-flare{0%{opacity:0;transform:scale(.2)}18%{opacity:1;transform:scale(1.9)}40%{opacity:.8;transform:scale(1.1)}100%{opacity:.6;transform:scale(.9)}}
+@keyframes fx-ignite{0%{opacity:0;transform:scaleX(.05)}16%{opacity:.95;transform:scaleX(.4)}26%{opacity:.35;transform:scaleX(.5)}40%{opacity:1;transform:scaleX(.8)}52%{opacity:.55;transform:scaleX(.88)}68%{opacity:1;transform:scaleX(1)}80%{opacity:.82}100%{opacity:1;transform:none}}
+@keyframes fx-dust{to{background-position:-200px 0}}
+@keyframes fx-boot{0%{opacity:0;transform:scale(.96,.02);filter:brightness(3.2)}40%{opacity:1;transform:scale(1,.06);filter:brightness(2.6)}72%{transform:scale(1,1.03);filter:brightness(1.5)}100%{opacity:1;transform:none;filter:none}}
+@keyframes fx-shut{0%{opacity:1;transform:none}60%{opacity:1;transform:scale(1,.04);filter:brightness(2.4)}100%{opacity:0;transform:scale(.02,.02)}}
+@keyframes fx-cut{0%{opacity:1;transform:none}100%{opacity:0;transform:scaleX(.05)}}
+.fx-lens img,.fx-lens iframe,.fx-lens .fx-repo{position:absolute;inset:0;width:100%;height:100%;border:0;pointer-events:none}
+.fx-lens img{object-fit:cover;object-position:top}
+.fx-lens iframe{inset:auto;left:0;top:0;width:1280px;height:800px;transform:scale(var(--s,.26));transform-origin:0 0;opacity:0;transition:opacity .45s ease;background:transparent}
+.fx-lens iframe.ready{opacity:1}
+/* fallback auto-scroll when the page cannot be scrolled from here (cross-origin): pan a taller frame */
+.fx-lens iframe.pan{height:2000px;animation:fx-pan 18s ease-in-out 1.2s infinite alternate}
+@keyframes fx-pan{from{transform:translateY(0) scale(var(--s,.26))}to{transform:translateY(calc(-1200px * var(--s,.26))) scale(var(--s,.26))}}
+.fx-lens::after{content:"";position:absolute;inset:0;border-radius:10px;background:repeating-linear-gradient(0deg,rgba(255,255,255,.035) 0 1px,transparent 1px 3px),radial-gradient(120% 90% at 100% 30%,rgba(255,235,150,.28),transparent 55%),radial-gradient(circle,transparent 62%,rgba(7,11,20,.5));pointer-events:none}
+.fx-repo{display:grid;place-content:center;gap:6px;text-align:center;padding:10%;font-size:11px;line-height:1.35;color:var(--fg);background:linear-gradient(145deg,#3a2200,#8a3d00 60%,#c2570a)}
+.fx-repo b{font:400 30px/1.1 "Instrument Serif",Georgia,serif;word-break:break-word;color:#fff3b0}
+.fx-repo span{color:#ffd54a;font-size:10px;letter-spacing:.1em;text-transform:uppercase}
+:root[data-theme="light"] .fx-cone{mix-blend-mode:normal;background:linear-gradient(to left,rgba(255,170,0,.85),rgba(255,140,0,.5) 22%,rgba(255,120,20,.26) 60%,rgba(255,110,20,.12))}
+:root[data-theme="light"] .fx-cone::after{background-image:repeating-linear-gradient(100deg,transparent 0 26px,rgba(255,255,255,.35) 34px,transparent 46px)}
+:root[data-theme="light"] .fx-flare{mix-blend-mode:normal;background:radial-gradient(circle,rgba(255,210,60,.95) 0,rgba(255,150,20,.6) 30%,rgba(255,120,0,.2) 55%,transparent 72%)}
+
+.fx-ctl{display:flex;flex-direction:column;align-items:flex-end;gap:5px;margin-top:6px;pointer-events:auto}
+.fx-b{display:inline-flex;align-items:center;justify-content:flex-start;gap:7px;width:126px;height:26px;padding:0 10px;white-space:nowrap;font:500 11px/1 "JetBrains Mono",ui-monospace,monospace;color:var(--fg);background:var(--card);border:1px solid var(--line);border-radius:99px;cursor:pointer;backdrop-filter:blur(8px);transition:border-color .2s,box-shadow .2s,color .2s}
+.fx-b i{flex:none;width:7px;height:7px;border-radius:50%;background:var(--mut);transition:background .2s,box-shadow .2s}
+.fx-b[aria-pressed="true"] i{background:var(--acc);box-shadow:0 0 8px var(--acc)}
+.fx-b[aria-pressed="false"]{color:var(--mut)}
+.fx-b:hover{border-color:var(--acc)}
+.fx-b:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+
+/* ---------- refined amber cursor (only while the telescope is on) ---------- */
+#fx-portal{position:fixed;left:0;top:0;width:0;height:0;z-index:60;pointer-events:none;opacity:0;transition:opacity .3s ease}
+html.fx-portal-on.fx-seen #fx-portal{opacity:1}
+html:not(.fx-portal-on) #fx-portal{opacity:0}
+.fxc-ring,.fxc-dot{position:absolute;left:0;top:0;border-radius:50%;will-change:transform}
+.fxc-ring{width:38px;height:38px;margin:-19px 0 0 -19px;border:1.5px solid rgba(255,190,40,.75);background:radial-gradient(circle,rgba(255,170,0,.07),transparent 70%);box-shadow:0 0 16px rgba(255,150,0,.35),inset 0 0 12px rgba(255,200,60,.18);transition:width .25s cubic-bezier(.2,.8,.2,1),height .25s cubic-bezier(.2,.8,.2,1),margin .25s cubic-bezier(.2,.8,.2,1),border-color .2s,background .2s}
+.fxc-dot{width:6px;height:6px;margin:-3px 0 0 -3px;background:#ffe933;box-shadow:0 0 6px #ffc400,0 0 14px #ff9f1c}
+#fx-portal.hot .fxc-ring{width:58px;height:58px;margin:-29px 0 0 -29px;border-color:#ffe933;background:radial-gradient(circle,rgba(255,200,0,.14),transparent 70%)}
+
+/* ---------- precise per-word neon hover: neon yellow with an orange halo ---------- */
+.w{--wc:#ffe933;--wg:#ff9f1c}
+html.fx-portal-on .w{transition:color .14s ease,text-shadow .14s ease}
+html.fx-portal-on .w:hover{color:var(--wc);text-shadow:0 0 4px rgba(255,233,51,.9),0 0 12px var(--wg),0 0 26px var(--wg),0 0 44px rgba(255,120,0,.45)}
+:root[data-theme="light"] .w{--wc:#c2410c;--wg:#f59e0b}
+:root[data-theme="light"].fx-portal-on .w:hover{text-shadow:none}
+:root[data-theme="light"] .fxc-dot{background:#c2410c;box-shadow:none}
+:root[data-theme="light"] .fxc-ring{border-color:rgba(194,65,12,.7);box-shadow:none}
+
+/* non-text surfaces: local amber border glow only */
+html.fx-portal-on :is(.big,.btn,.card):hover{border-color:#ffc400;box-shadow:0 0 0 1px #ffc400,0 0 22px rgba(255,159,28,.4)}
+html.fx-portal-on #wk .card.is-active{border-color:#ffc400;box-shadow:0 0 0 1px #ffc400,0 24px 70px rgba(255,159,28,.2)}
+.fx-b.dim{opacity:.6}
+
+@media (max-width:1100px){.fx-cap{display:none}.fx-beam{--sw:280px;--sh:176px;--cw:200px}}
+@media (prefers-reduced-motion:reduce){.fx-view,.fx-rig,.fx-beam{transition:none!important}}
