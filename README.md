@@ -2,36 +2,39 @@
 
 Static portfolio site for [Mohamed Abd Elhafez](https://github.com/mohammed-abd-elhafez), deployed from this repository through GitHub Pages.
 
-## What is included
+## Homepage
 
-- Responsive landing page with light/dark theme support.
-- Current snapshot of the 11 public repositories on the GitHub profile, sourced from the account on 2026-10-20.
-- Local, optimized project preview assets so the site does not depend on external image hosts.
-- Case studies for the selected web and Flutter projects.
-- Accessible contact form with validation, FormSubmit delivery, email fallback, and privacy links.
-- SEO metadata, JSON-LD, valid sitemap, robots rules, manifest, and static security headers.
+`index.html` follows the attached `MohamedAbdElhafez—SoftwareDeveloper.html` design: dark/light theme toggle, Three.js background scene, services, work cards, process, FAQ, and a mailto contact form.
 
-## Updating projects
+The Work cards are populated from the current public repositories in `data/projects.json`. The repository slugs are kept exact so every card opens the matching GitHub project.
 
-The Work section is rendered from `data/projects.json`. Each entry contains the repository URL and may include a live demo, case study URL, local preview image, description, and stack. Keep descriptions factual and do not add fabricated metrics or testimonials.
+## Current project data
 
-When the GitHub account changes, update the snapshot from the public repository metadata and keep the repository count in `index.html` synchronized with the data file.
+The homepage currently includes the 11 public repositories on the GitHub profile at the time of the latest update:
+
+- FitnessTracker
+- m-pizza
+- flutter-expense-tracker
+- flutter-task-manager
+- flutter-starter-architecture
+- NEW-E-COMMERCE
+- ELZERO-TEMPLATE-3
+- the-first-project-2-11-2022
+- casper-30-12-2022
+- bootsrap-project
+- e-commerce
+
+When the GitHub account changes, update `data/projects.json` and the generated `WK` list in `index.html` while preserving the exact repository slugs.
 
 ## Contact configuration
 
-The editable configuration is near the top of the script in `index.html`:
-
-- `email` — contact address.
-- `whatsapp` — international phone number used by the WhatsApp CTA.
-- `upwork` — public Upwork profile URL.
-- `endpoint` — FormSubmit AJAX endpoint.
-- `responseTime` and `tz` — availability copy and Cairo timezone.
+The editable contact values are in the script inside `index.html`: email address, WhatsApp number, Upwork URL, response-time text, and Cairo timezone.
 
 The legal pages are informational templates, not legal advice. Review them for the final business setup before relying on them.
 
 ## Local preview
 
-Because this is a static site, serve the repository root with any static server, for example:
+Serve the repository root with any static server, for example:
 
 ```sh
 python3 -m http.server 4173
