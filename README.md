@@ -4,7 +4,9 @@ Static portfolio site for [Mohamed Abd Elhafez](https://github.com/mohammed-abd-
 
 ## Homepage
 
-`index.html` follows the attached `MohamedAbdElhafez—SoftwareDeveloper.html` design: dark/light theme toggle, Three.js background scene, services, work cards, process, FAQ, and a mailto contact form.
+`index.html` follows the attached `MohamedAbdElhafez—SoftwareDeveloper.html` design: dark/light theme toggle, Three.js background scene, services, work cards, process, FAQ, and a mailto contact form. Project cards have a desktop spotlight/focus interaction with keyboard focus support.
+
+Three.js is loaded only during idle time on capable desktop devices. It is skipped on mobile, coarse-pointer, Save-Data, reduced-motion, and low-memory/low-core devices; the render loop also pauses while the tab is hidden. Mobile cards and forms disable backdrop blur to reduce GPU work.
 
 The Work cards are populated from the current public repositories in `data/projects.json`. The repository slugs are kept exact so every card opens the matching GitHub project.
 
