@@ -158,20 +158,22 @@ var N=1100,pp=new Float32Array(N*3);for(var i=0;i<N;i++){var r=4+Math.random()*7
 var pg=new THREE.BufferGeometry();pg.setAttribute('position',new THREE.BufferAttribute(pp,3));
 var pts=new THREE.Points(pg,new THREE.PointsMaterial({size:.035,transparent:true,opacity:.8}));sc.add(pts);
 var orbit=new THREE.Group();g.add(orbit);var SK=['JavaScript','TypeScript','React','Node.js','SQL','Kotlin','Java','REST APIs'];
+var pointer=new THREE.Vector2(),projected=new THREE.Vector3(),world=new THREE.Vector3();
 var key='',acc,fg;
-function label(txt){var c=document.createElement('canvas');c.width=256;c.height=64;var x=c.getContext('2d');x.font='500 26px monospace';x.textAlign='center';x.textBaseline='middle';x.fillStyle=fg;x.fillText(txt,128,32);var s=new THREE.Sprite(new THREE.SpriteMaterial({map:new THREE.CanvasTexture(c),transparent:true,depthWrite:false}));s.scale.set(1.6,.4,1);return s}
+function label(txt){var c=document.createElement('canvas');c.width=256;c.height=64;var x=c.getContext('2d');x.font='500 26px monospace';x.textAlign='center';x.textBaseline='middle';x.fillStyle=fg;x.fillText(txt,128,32);var s=new THREE.Sprite(new THREE.SpriteMaterial({map:new THREE.CanvasTexture(c),transparent:true,depthWrite:false,opacity:.72}));s.scale.set(1.6,.4,1);s.userData={baseScale:1.6,baseY:0,phase:Math.random()*6.283,influence:0};return s}
 function theme(){var st=getComputedStyle(R);acc=st.getPropertyValue('--acc').trim();fg=st.getPropertyValue('--fg').trim();var k=acc+fg;if(k===key)return;key=k;
 [core,inner].forEach(function(m){m.material.color.set(m===core?acc:fg)});rings.forEach(function(r){r.material.color.set(acc)});pts.material.color.set(fg);
 while(orbit.children.length){var o=orbit.children.pop();o.material.map.dispose();o.material.dispose()}
-SK.forEach(function(s,i){var sp=label(s),a=i/SK.length*6.283;sp.position.set(Math.cos(a)*3.9,Math.sin(i*1.7)*.5,Math.sin(a)*3.9);orbit.add(sp)})}
+SK.forEach(function(s,i){var sp=label(s),a=i/SK.length*6.283;sp.position.set(Math.cos(a)*3.9,Math.sin(i*1.7)*.5,Math.sin(a)*3.9);sp.userData.baseY=sp.position.y;orbit.add(sp)})}
 function size(){var w=innerWidth,h=innerHeight;ren.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix();g.position.x=w>820?2.4:0;}
 size();addEventListener('resize',size);
-var mx=0,my=0,sy=0;addEventListener('pointermove',function(e){mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5});
+var mx=0,my=0,sy=0;addEventListener('pointermove',function(e){mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5});addEventListener('pointerout',function(e){if(!e.relatedTarget){mx=0;my=0}});
 var clock=new THREE.Clock();
 function frame(){var t=clock.getElapsedTime();theme();
 var h=Math.max(1,document.body.scrollHeight-innerHeight),p=Math.min(1,scrollY/h);sy+=(p-sy)*.06;
 if(!reduce){var arr=core.geometry.attributes.position.array;for(var i=0;i<arr.length;i+=3){var x=base[i],y=base[i+1],z=base[i+2],d=1+.09*Math.sin(x*2.2+t*1.2)*Math.cos(y*2.1+t*.9)+.05*Math.sin(z*3+t*1.5);arr[i]=x*d;arr[i+1]=y*d;arr[i+2]=z*d}core.geometry.attributes.position.needsUpdate=true;
-core.rotation.y=t*.1;inner.rotation.set(t*.3,t*.4,0);rings.forEach(function(r,i){r.rotation.z=t*(.12+i*.07)});orbit.rotation.y=t*.15+sy*6;pts.rotation.y=t*.02}
+	core.rotation.y=t*.1;inner.rotation.set(t*.3,t*.4,0);rings.forEach(function(r,i){r.rotation.z=t*(.12+i*.07)});orbit.rotation.y=t*.15+sy*6;pts.rotation.y=t*.02}
+	pointer.set(mx*2,-my*2);var active=0;orbit.children.forEach(function(sp){sp.getWorldPosition(world);projected.copy(world).project(cam);var dx=projected.x-pointer.x,dy=projected.y-pointer.y,d=Math.sqrt(dx*dx+dy*dy),hit=Math.max(0,Math.min(1,1-d/.34));sp.userData.influence+=(hit-sp.userData.influence)*.14;var k=sp.userData.influence;active=Math.max(active,k);sp.scale.set(sp.userData.baseScale*(1+k*.42),.4*(1+k*.42),1);sp.position.y=sp.userData.baseY+Math.sin(t*.9+sp.userData.phase)*.06+k*.12;sp.material.opacity=.72+k*.28;sp.material.color.set(k>.04?acc:'#ffffff')});rings.forEach(function(r,i){r.material.opacity=.55-i*.12+active*(.14-i*.025)});core.scale.setScalar(1+active*.045);
 g.rotation.y+=((mx*1.1+sy*3)-g.rotation.y)*.05;g.rotation.x+=((my*.7+sy*1.2)-g.rotation.x)*.05;
 cam.position.z=8+sy*5;g.position.y=sy*3;cv.style.opacity=(1-sy*.65).toFixed(2);
 ren.render(sc,cam);if(!reduce)requestAnimationFrame(frame)}
