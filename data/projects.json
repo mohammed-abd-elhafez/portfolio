@@ -1,20 +1,40 @@
 [
   {
     "title": "FitnessTracker",
-    "description": "Private, offline-first iOS fitness tracker built with SwiftUI, SwiftData and HealthKit. The repository documents a privacy-first Arabic and English product direction.",
-    "stack": ["Swift", "SwiftUI", "SwiftData", "HealthKit"],
-    "url": "https://github.com/mohammed-abd-elhafez/FitnessTracker"
+    "description": "Privacy-first, offline-first iOS fitness tracker with daily health metrics, workout logging, goals, streaks and Arabic/English support.",
+    "stack": [
+      "Swift 6",
+      "SwiftUI",
+      "SwiftData",
+      "HealthKit",
+      "WidgetKit"
+    ],
+    "url": "https://github.com/mohammed-abd-elhafez/FitnessTracker",
+    "liveUrl": "https://mohammed-abd-elhafez.github.io/FitnessTracker/"
   },
   {
     "title": "M Pizza",
-    "description": "A pizza ordering system for an Egyptian restaurant with a Flutter customer app, kitchen board, admin web app, API and database migrations.",
-    "stack": ["Flutter", "Dart", "REST API", "Admin web"],
-    "url": "https://github.com/mohammed-abd-elhafez/m-pizza"
+    "description": "Arabic-first pizza ordering system with a Flutter customer app, kitchen board, admin web, REST API, OTP login and live order tracking.",
+    "stack": [
+      "Flutter",
+      "Dart",
+      "Node.js",
+      "TypeScript",
+      "Fastify",
+      "PostgreSQL"
+    ],
+    "url": "https://github.com/mohammed-abd-elhafez/m-pizza",
+    "liveUrl": "https://mohammed-abd-elhafez.github.io/m-pizza/"
   },
   {
     "title": "Expense Tracker",
-    "description": "A focused Flutter expense dashboard with a demo budget summary, category filtering, validated expense entry, empty states and testable state management.",
-    "stack": ["Flutter", "Dart", "Material 3", "GitHub Pages"],
+    "description": "Feature-first Flutter expense dashboard with budget summaries, category filters, validated entries and a replaceable repository boundary.",
+    "stack": [
+      "Flutter",
+      "Dart",
+      "Material 3",
+      "ChangeNotifier"
+    ],
     "url": "https://github.com/mohammed-abd-elhafez/flutter-expense-tracker",
     "liveUrl": "https://mohammed-abd-elhafez.github.io/flutter-expense-tracker/",
     "caseStudyUrl": "case-studies/expense-tracker.html",
@@ -22,8 +42,13 @@
   },
   {
     "title": "Task Manager",
-    "description": "A feature-first Flutter task dashboard with status filters, progress summaries, accessible workflow actions and a documented mock-data repository boundary.",
-    "stack": ["Flutter", "Dart", "Material 3", "GitHub Pages"],
+    "description": "Feature-first Flutter task dashboard with progress summaries, workflow filters, priority labels and accessible status actions.",
+    "stack": [
+      "Flutter",
+      "Dart",
+      "Material 3",
+      "ChangeNotifier"
+    ],
     "url": "https://github.com/mohammed-abd-elhafez/flutter-task-manager",
     "liveUrl": "https://mohammed-abd-elhafez.github.io/flutter-task-manager/",
     "caseStudyUrl": "case-studies/task-manager.html",
@@ -31,22 +56,39 @@
   },
   {
     "title": "Flutter Starter Architecture",
-    "description": "A documentation-first Flutter starter demonstrating feature-first structure, explicit UI state and dependency inversion for future products.",
-    "stack": ["Flutter", "Dart", "Feature-first", "Material 3"],
-    "url": "https://github.com/mohammed-abd-elhafez/flutter-starter-architecture"
+    "description": "Documentation-first Flutter starter demonstrating feature-first structure, explicit UI states, dependency inversion and testable boundaries.",
+    "stack": [
+      "Flutter",
+      "Dart",
+      "Material 3",
+      "Clean Architecture"
+    ],
+    "url": "https://github.com/mohammed-abd-elhafez/flutter-starter-architecture",
+    "liveUrl": "https://mohammed-abd-elhafez.github.io/flutter-starter-architecture/"
   },
   {
     "title": "New E-Commerce",
-    "description": "A front-end e-commerce experience with product views, categories, cart UI, JSON data and interactive JavaScript modules.",
-    "stack": ["HTML", "CSS", "JavaScript", "JSON"],
+    "description": "Responsive e-commerce front end with product browsing, categories, cart interactions, JSON-backed content and reusable JavaScript modules.",
+    "stack": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "JSON"
+    ],
     "url": "https://github.com/mohammed-abd-elhafez/NEW-E-COMMERCE",
+    "liveUrl": "https://mohammed-abd-elhafez.github.io/NEW-E-COMMERCE/",
     "caseStudyUrl": "case-studies/new-e-commerce.html",
     "image": "assets/img/projects/new-e-commerce.webp"
   },
   {
     "title": "Elzero Template 3",
-    "description": "A multi-section responsive website template with gallery, testimonials, pricing and interactive sections.",
-    "stack": ["HTML", "CSS", "Bootstrap", "JavaScript"],
+    "description": "Multi-section responsive landing page with gallery, testimonials, pricing, navigation and interactive presentation sections.",
+    "stack": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Responsive UI"
+    ],
     "url": "https://github.com/mohammed-abd-elhafez/ELZERO-TEMPLATE-3",
     "liveUrl": "https://mohammed-abd-elhafez.github.io/ELZERO-TEMPLATE-3/",
     "caseStudyUrl": "case-studies/elzero-template-3.html",
@@ -54,8 +96,13 @@
   },
   {
     "title": "The First Project",
-    "description": "A front-end practice project focused on responsive layout, typography and polished CSS details.",
-    "stack": ["HTML", "CSS", "JavaScript"],
+    "description": "Front-end practice project focused on responsive layout, typography, section composition and polished CSS details.",
+    "stack": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Font Awesome"
+    ],
     "url": "https://github.com/mohammed-abd-elhafez/the-first-project-2-11-2022",
     "liveUrl": "https://mohammed-abd-elhafez.github.io/the-first-project-2-11-2022/",
     "caseStudyUrl": "case-studies/the-first-project.html",
@@ -63,8 +110,13 @@
   },
   {
     "title": "Casper Landing Page",
-    "description": "A responsive landing page with a visual editorial layout, media sections and reusable UI patterns.",
-    "stack": ["HTML", "CSS", "JavaScript"],
+    "description": "Responsive creative landing page with editorial sections, gallery content, media presentation and reusable UI patterns.",
+    "stack": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "CSS Normalize"
+    ],
     "url": "https://github.com/mohammed-abd-elhafez/casper-30-12-2022",
     "liveUrl": "https://mohammed-abd-elhafez.github.io/casper-30-12-2022/",
     "caseStudyUrl": "case-studies/casper-landing-page.html",
@@ -72,8 +124,14 @@
   },
   {
     "title": "Bootstrap Project",
-    "description": "A responsive front-end project built with Bootstrap, custom CSS and JavaScript.",
-    "stack": ["HTML", "CSS", "Bootstrap", "JavaScript"],
+    "description": "Bondi-inspired responsive front-end landing page with Bootstrap layout utilities, custom theme styling, Font Awesome icons and JavaScript interactions.",
+    "stack": [
+      "HTML",
+      "Bootstrap 5",
+      "CSS",
+      "JavaScript",
+      "Font Awesome"
+    ],
     "url": "https://github.com/mohammed-abd-elhafez/bootsrap-project",
     "liveUrl": "https://mohammed-abd-elhafez.github.io/bootsrap-project/",
     "caseStudyUrl": "case-studies/bootstrap-project.html",
@@ -81,8 +139,14 @@
   },
   {
     "title": "E-Commerce",
-    "description": "An older e-commerce repository from the public GitHub profile. Open the repository to review the implementation.",
-    "stack": ["HTML", "CSS", "JavaScript"],
-    "url": "https://github.com/mohammed-abd-elhafez/e-commerce"
+    "description": "Archived e-commerce project entry with a GitHub Pages landing page added for portfolio review and project history.",
+    "stack": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "GitHub Pages"
+    ],
+    "url": "https://github.com/mohammed-abd-elhafez/e-commerce",
+    "liveUrl": "https://mohammed-abd-elhafez.github.io/e-commerce/"
   }
 ]

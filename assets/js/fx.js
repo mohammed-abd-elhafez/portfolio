@@ -222,7 +222,7 @@
     var viewEl = scope.querySelector('.fx-view'), liveOk = /^https:\/\/[a-z0-9-]+\.github\.io\//i;
     function slug(s) { return (s || '').toLowerCase(); }
     /* data/projects.json is keyed by the repo name in each card's link, so new projects work without code changes */
-    function key(card) { return slug((card.getAttribute('href') || '').split('/').pop() || card.querySelector('h3').textContent.trim()); }
+    function key(card) { return slug(card.getAttribute('data-repo') || (card.getAttribute('href') || '').split('/').pop() || card.querySelector('h3').textContent.trim()); }
     var waiting = [];
     function load(cb) {
       if (map) return cb();

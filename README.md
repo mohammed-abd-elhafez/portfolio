@@ -8,7 +8,7 @@ Static portfolio site for [Mohamed Abd Elhafez](https://github.com/mohammed-abd-
 
 Three.js is loaded only during idle time on capable desktop devices. It is skipped on mobile, coarse-pointer, Save-Data, reduced-motion, and low-memory/low-core devices; the render loop also pauses while the tab is hidden. Mobile cards and forms disable backdrop blur to reduce GPU work.
 
-The Work cards are populated from the current public repositories in `data/projects.json`. The repository slugs are kept exact so every card opens the matching GitHub project.
+The Work cards are populated from the current public repositories in `data/projects.json`. Each card includes a project description, technology chips, a GitHub link, and a Live demo link when GitHub Pages is available. The repository slugs are kept exact so every card opens the matching GitHub project.
 
 ## Current project data
 
@@ -46,5 +46,5 @@ Then open `http://localhost:4173/`.
 
 ## Adding a project
 Add one entry to `data/projects.json`; no code changes needed. A card appears automatically (if the repo is not already listed in `WK` in `index.html`) and the telescope preview works for it.
-Fields: `title`, `url` (GitHub repo, https), `stack` (array), optional `liveUrl` (https://<user>.github.io/...), optional `image` (screenshot path, shown first).
+Fields: `title`, `description`, `url` (GitHub repo, https), `stack` (array), optional `liveUrl` (https://<user>.github.io/...), optional `caseStudyUrl`, and optional `image` (preview path).
 Hovering a card fires the projector beam: screenshot first, then the live page with auto-scroll.

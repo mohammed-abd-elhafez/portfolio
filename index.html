@@ -48,6 +48,7 @@ h2{font-size:clamp(36px,5.6vw,64px);line-height:1;margin:10px 0 36px;letter-spac
 .card .chips{margin-top:16px}
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.steps div{border-top:1px solid var(--fg);padding-top:14px}
 .steps h4{font-size:26px;margin:0 0 6px;font-weight:400}.steps p{margin:0;color:var(--mut);font-size:13px}
+.project-card{min-height:250px}.project-card .project-desc{color:var(--mut);font-size:13px;margin:8px 0 0}.project-card .project-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.project-card .project-action{font:inherit;font-size:11px;text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:5px 9px;color:var(--fg);background:transparent}.project-card .project-action:hover,.project-card .project-action:focus-visible{border-color:var(--acc);color:var(--acc)}.project-card .project-action.primary{background:var(--acc);border-color:var(--acc);color:var(--accfg)}
 details{border-bottom:1px solid var(--line);padding:16px 0}summary{cursor:pointer;font-size:16px;list-style:none;display:flex;justify-content:space-between;gap:12px}
 summary::after{content:"+";color:var(--acc)}details[open] summary::after{content:"–"}details p{color:var(--mut);margin:10px 0 0;max-width:720px}
 form{display:grid;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;backdrop-filter:blur(8px)}
@@ -133,10 +134,14 @@ try{var t=localStorage.getItem('theme');if(t)R.setAttribute('data-theme',t)}catc
 $('#th').onclick=function(){var c=R.getAttribute('data-theme')||'dark',n=c==='dark'?'light':'dark';R.setAttribute('data-theme',n);try{localStorage.setItem('theme',n)}catch(e){}};
 /* data */
 var SV=[['Full-stack web apps','End to end, from database to interface.'],['Front-end and back-end','Either side, or both.'],['REST APIs and services','Third-party services wired in cleanly.'],['Responsive interfaces','Accessible, fast and easy to extend.'],['Mobile apps','Flutter, SwiftUI and native product work.'],['Fixes and new features','Into code you already have.'],['Database-driven apps','SQL or NoSQL, as the project needs.']];
-var WK=[["FitnessTracker","Swift / SwiftUI"],["m-pizza","Flutter / Dart"],["flutter-expense-tracker","Flutter / Dart"],["flutter-task-manager","Flutter / Dart"],["flutter-starter-architecture","Flutter / Dart"],["NEW-E-COMMERCE","HTML / CSS"],["ELZERO-TEMPLATE-3","HTML / CSS"],["the-first-project-2-11-2022","HTML / CSS"],["casper-30-12-2022","HTML / CSS"],["bootsrap-project","HTML / CSS"],["e-commerce","HTML / CSS"]];
+var WK=['FitnessTracker','m-pizza','flutter-expense-tracker','flutter-task-manager','flutter-starter-architecture','NEW-E-COMMERCE','ELZERO-TEMPLATE-3','the-first-project-2-11-2022','casper-30-12-2022','bootsrap-project','e-commerce'];
 function pad(n){return n<10?'0'+n:n}
+function esc(v){return String(v==null?'':v).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+function repoName(url){return String(url||'').split('/').pop()}
+function projectCard(p,i){var repo=repoName(p.url)||p.title,stack=(p.stack||[]).slice(0,5),actions='<a class="project-action" target="_blank" rel="noopener noreferrer" href="'+esc(p.url)+'">GitHub ↗</a>'+(p.liveUrl?'<a class="project-action primary" target="_blank" rel="noopener noreferrer" href="'+esc(p.liveUrl)+'">Live demo ↗</a>':'')+(p.caseStudyUrl?'<a class="project-action" href="'+esc(p.caseStudyUrl)+'">Case study</a>':'');return '<article class="card project-card rv in" data-repo="'+esc(repo)+'"><span class="num">/'+pad(i+1)+' · project</span><h3 class="serif" style="word-break:break-word">'+esc(p.title||repo)+'</h3><p class="project-desc">'+esc(p.description||'Project details on GitHub.')+'</p><div class="chips">'+stack.map(function(s){return '<i>'+esc(s)+'</i>'}).join('')+'</div><div class="project-actions">'+actions+'</div></article>'}
+function fallbackProjects(){return WK.map(function(repo){return {title:repo,url:'https://github.com/mohammed-abd-elhafez/'+repo,description:'Open the repository for project details and source code.',stack:['GitHub']}})}
 $('#sv').innerHTML=SV.map(function(s,i){return '<div class="card rv"><span class="num">/'+pad(i+1)+'</span><h3 class="serif">'+s[0]+'</h3><p>'+s[1]+'</p></div>'}).join('');
-$('#wk').innerHTML=WK.map(function(w,i){return '<a class="card rv" target="_blank" rel="noopener noreferrer" href="https://github.com/mohammed-abd-elhafez/'+w[0]+'"><span class="num">/'+pad(i+1)+' · repo</span><h3 class="serif" style="word-break:break-word">'+w[0]+'</h3><div class="chips"><i>'+w[1]+'</i><i>GitHub ↗</i></div></a>'}).join('');
+$('#wk').innerHTML=fallbackProjects().map(projectCard).join('');
 /* clock */
 function clk(){try{$('#lt').textContent=new Date().toLocaleTimeString('en-GB',{timeZone:'Africa/Cairo',hour:'2-digit',minute:'2-digit'})+' (Cairo)'}catch(e){}}clk();setInterval(clk,30000);
 /* form -> mailto */
@@ -152,14 +157,7 @@ function clearProject(){wk.classList.remove('has-active');projectCards.forEach(f
 function bindProject(card){card.addEventListener('pointerenter',function(){activateProject(card)});card.addEventListener('pointerleave',clearProject);card.addEventListener('focusin',function(){activateProject(card)});card.addEventListener('focusout',function(){setTimeout(function(){if(!wk.querySelector(':focus'))clearProject()},0)})}
 projectCards.forEach(bindProject);
 /* projects added only to data/projects.json appear automatically as cards (and get the telescope preview) */
-fetch('data/projects.json').then(function(r){return r.ok?r.json():[]}).then(function(list){var have={};projectCards.forEach(function(c){have[(c.getAttribute('href')||'').split('/').pop().toLowerCase()]=1});var added=0;
-(Array.isArray(list)?list:[]).forEach(function(p){var u=String(p&&p.url||''),slug=u.split('/').pop();if(!/^https:\/\/github\.com\//.test(u)||!slug||have[slug.toLowerCase()])return;have[slug.toLowerCase()]=1;
-var a=document.createElement('a');a.className='card rv in';a.target='_blank';a.rel='noopener noreferrer';a.href=u;
-var n=document.createElement('span');n.className='num';n.textContent='/'+pad(projectCards.length+1)+' · repo';
-var h=document.createElement('h3');h.className='serif';h.style.wordBreak='break-word';h.textContent=slug;
-var ch=document.createElement('div');ch.className='chips';var i1=document.createElement('i');i1.textContent=(p.stack||[]).slice(0,2).join(' / ')||'GitHub';var i2=document.createElement('i');i2.textContent='GitHub ↗';ch.appendChild(i1);ch.appendChild(i2);
-a.appendChild(n);a.appendChild(h);a.appendChild(ch);wk.appendChild(a);bindTilt(a);bindProject(a);projectCards.push(a);added++});
-if(added)document.dispatchEvent(new Event('projects:added'))}).catch(function(){});
+fetch('data/projects.json').then(function(r){return r.ok?r.json():[]}).then(function(list){if(!Array.isArray(list)||!list.length)return;wk.innerHTML=list.map(projectCard).join('');projectCards=[].slice.call(wk.querySelectorAll('.card'));projectCards.forEach(function(card){bindTilt(card);bindProject(card)});document.dispatchEvent(new Event('projects:added'))}).catch(function(){});
 /* 3D scene: optional desktop enhancement, never part of the mobile critical path */
 var threeQ=null;function loadThree(done){if(window.THREE)return done();if(threeQ)return threeQ.push(done);threeQ=[done];var s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';s.async=true;s.onload=function(){threeQ.splice(0).forEach(function(f){f()})};s.onerror=function(){threeQ=null};document.head.appendChild(s)}window.__loadThree=loadThree;
 function startScene(){var c=navigator.connection||navigator.mozConnection||navigator.webkitConnection,limited=matchMedia('(max-width:820px)').matches||matchMedia('(pointer:coarse)').matches||reduce||(c&&c.saveData)||((navigator.deviceMemory||8)<=2)||((navigator.hardwareConcurrency||8)<=2);if(limited)return;loadThree(function(){
