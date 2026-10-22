@@ -14,6 +14,8 @@ The Work cards are populated from the current public repositories in `data/proje
 
 The homepage currently includes selected public work plus the published Skin Concierge demo. The first projects are ordered for web-design review:
 
+- Nawa Bilingual Landing
+- Landing Lab
 - Skin Concierge
 - New E-Commerce
 - ELZERO-TEMPLATE-3

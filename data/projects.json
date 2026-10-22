@@ -1,4 +1,32 @@
 [{
+    "title": "Nawa Bilingual Landing",
+    "description": "Bilingual English/Arabic RTL-LTR landing page reviewed for accessibility, keyboard behavior, responsive layout, SEO metadata and GitHub Pages deployment.",
+    "stack": [
+      "React",
+      "TypeScript",
+      "Vite",
+      "RTL / LTR",
+      "Accessibility"
+    ],
+    "url": "https://github.com/mohammed-abd-elhafez/nawa-landing",
+    "liveUrl": "https://mohammed-abd-elhafez.github.io/nawa-landing/",
+    "caseStudyUrl": "case-studies/nawa-landing.html"
+  },
+  {
+    "title": "Landing Lab",
+    "description": "Design comparison lab with three shared-content landing-page directions, measured contrast, route-aware previews, accessibility tests and documented trade-offs.",
+    "stack": [
+      "React 19",
+      "TypeScript",
+      "React Router",
+      "Vite",
+      "axe-core"
+    ],
+    "url": "https://github.com/mohammed-abd-elhafez/landing-lab",
+    "liveUrl": "https://mohammed-abd-elhafez.github.io/landing-lab/",
+    "caseStudyUrl": "case-studies/landing-lab.html"
+  },
+  {
     "title": "Skin Concierge",
     "description": "Independent service-discovery demo with source-linked cards, clear information hierarchy, published-price comparisons and a copyable visit plan.",
     "stack": [

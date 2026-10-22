@@ -134,7 +134,7 @@ try{var t=localStorage.getItem('theme');if(t)R.setAttribute('data-theme',t)}catc
 $('#th').onclick=function(){var c=R.getAttribute('data-theme')||'dark',n=c==='dark'?'light':'dark';R.setAttribute('data-theme',n);try{localStorage.setItem('theme',n)}catch(e){}};
 /* data */
 var SV=[['Responsive web design','Clear hierarchy and layouts that adapt across desktop and mobile.'],['Landing pages','Focused pages with strong visual direction and an obvious next step.'],['E-commerce interfaces','Product browsing, filters, cart flows and conversion-aware UI.'],['Frontend implementation','Accessible HTML, CSS and JavaScript built from the design.'],['Product demos','Useful customer journeys with clear, reviewable behavior.'],['Design systems and polish','Typography, spacing, components, states and interaction details.'],['Existing UI improvements','Practical fixes for layout, responsiveness and usability.']];
-var WK=['skin-concierge','NEW-E-COMMERCE','ELZERO-TEMPLATE-3','m-pizza','FitnessTracker','flutter-expense-tracker','flutter-task-manager','flutter-starter-architecture','the-first-project-2-11-2022','casper-30-12-2022','bootsrap-project','e-commerce'];
+var WK=['nawa-landing','landing-lab','skin-concierge','NEW-E-COMMERCE','ELZERO-TEMPLATE-3','m-pizza','FitnessTracker','flutter-expense-tracker','flutter-task-manager','flutter-starter-architecture','the-first-project-2-11-2022','casper-30-12-2022','bootsrap-project','e-commerce'];
 function pad(n){return n<10?'0'+n:n}
 function esc(v){return String(v==null?'':v).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
 function repoName(url){return String(url||'').split('/').pop()}
