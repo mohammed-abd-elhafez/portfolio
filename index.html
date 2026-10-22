@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Mohamed Abd Elhafez — Software Developer</title>
-<meta name="description" content="Freelance software developer building fast, maintainable web apps, REST APIs and Android apps. Works remotely from Egypt.">
+<title>Mohamed Abd Elhafez — Web Designer & Frontend Developer</title>
+<meta name="description" content="Web designer and frontend developer creating clear, responsive interfaces and AI-assisted product prototypes. Based in Egypt, working remotely.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -26,7 +26,7 @@ nav .l{display:flex;gap:20px;align-items:center}nav a{text-decoration:none;color
 .hero .wrap{padding-top:40px;padding-bottom:60px}
 .tag{display:inline-flex;gap:8px;align-items:center;font-size:12px;color:var(--mut);border:1px solid var(--line);padding:5px 12px;border-radius:99px;background:var(--card)}
 .dot{width:7px;height:7px;border-radius:50%;background:var(--acc);animation:p 2s infinite}@keyframes p{70%{box-shadow:0 0 0 8px transparent}0%{box-shadow:0 0 0 0 var(--acc)}}
-h1{font-size:clamp(44px,8.6vw,112px);line-height:.95;margin:22px 0 22px;letter-spacing:-.03em;max-width:900px}
+h1{font-size:clamp(44px,7.2vw,96px);line-height:.95;margin:22px 0 22px;letter-spacing:-.03em;max-width:820px}
 h1 em{color:var(--acc)}
 .sub{max-width:540px;color:var(--mut)}
 .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
@@ -70,22 +70,22 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 <div><button class="btn" id="th" aria-label="Toggle theme">◐ theme</button> <a class="btn" href="#contact" style="text-decoration:none">hire me</a></div></div></nav>
 <main>
 <header class="hero" id="top"><div class="wrap">
-<span class="tag"><span class="dot"></span> Open for selected projects</span>
-<h1 class="serif">I engineer fast, scalable products that <em>look as good as they run.</em></h1>
-<p class="sub">Freelance software developer for web apps, APIs and Android. I work remotely from Egypt and ship in clear milestones.</p>
+<span class="tag"><span class="dot"></span> Web design · frontend · AI-assisted prototypes</span>
+<h1 class="serif">I design web experiences that <em>look clear and make the next step obvious.</em></h1>
+<p class="sub">Web designer and frontend developer creating responsive interfaces, product flows and AI-assisted prototypes. I work remotely from Egypt and ship in clear milestones.</p>
 <div class="cta"><a class="big" href="#contact">Start a project</a><a class="big o" href="https://github.com/mohammed-abd-elhafez" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div>
 <p class="hint">↳ Move your mouse to steer the 3D scene · scroll to fly through it</p>
 </div></header>
 
 <section id="about"><div class="wrap two">
-<div><div class="eyebrow rv">01 — about</div><h2 class="serif rv">One engineer, start to finish.</h2></div>
-<div class="rv"><p>I'm a solo freelancer, not an agency. You talk to the person writing your code.</p>
-<p>I specialize in reliable, scalable, user-friendly products: clean code, practical architecture and clear communication. I'm comfortable reading an existing codebase, troubleshooting it, and delivering changes in organized milestones.</p>
-<div class="chips"><i>JavaScript</i><i>TypeScript</i><i>React</i><i>Node.js</i><i>SQL / NoSQL</i><i>Kotlin</i><i>Java</i></div></div>
+<div><div class="eyebrow rv">01 — about</div><h2 class="serif rv">Design first, built to ship.</h2></div>
+<div class="rv"><p>I'm a solo freelancer, not an agency. You talk directly to the person designing and building the work.</p>
+<p>I focus on information hierarchy, responsive layouts, clear interaction patterns and polished frontend details. I use AI tools to explore ideas faster, then review the output for usability, consistency, accessibility and factual accuracy.</p>
+<div class="chips"><i>Web design</i><i>Responsive UI</i><i>HTML / CSS</i><i>JavaScript</i><i>TypeScript</i><i>React</i><i>Accessibility</i><i>AI-assisted prototypes</i></div></div>
 </div></section>
 
 <section id="services"><div class="wrap">
-<div class="eyebrow rv">02 — services</div><h2 class="serif rv">What I can build for you</h2>
+<div class="eyebrow rv">02 — services</div><h2 class="serif rv">What I can design and build</h2>
 <div class="grid" id="sv"></div></div></section>
 
 <section id="work"><div class="wrap">
@@ -133,12 +133,12 @@ var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
 try{var t=localStorage.getItem('theme');if(t)R.setAttribute('data-theme',t)}catch(e){}
 $('#th').onclick=function(){var c=R.getAttribute('data-theme')||'dark',n=c==='dark'?'light':'dark';R.setAttribute('data-theme',n);try{localStorage.setItem('theme',n)}catch(e){}};
 /* data */
-var SV=[['Full-stack web apps','End to end, from database to interface.'],['Front-end and back-end','Either side, or both.'],['REST APIs and services','Third-party services wired in cleanly.'],['Responsive interfaces','Accessible, fast and easy to extend.'],['Mobile apps','Flutter, SwiftUI and native product work.'],['Fixes and new features','Into code you already have.'],['Database-driven apps','SQL or NoSQL, as the project needs.']];
-var WK=['FitnessTracker','m-pizza','flutter-expense-tracker','flutter-task-manager','flutter-starter-architecture','NEW-E-COMMERCE','ELZERO-TEMPLATE-3','the-first-project-2-11-2022','casper-30-12-2022','bootsrap-project','e-commerce'];
+var SV=[['Responsive web design','Clear hierarchy and layouts that adapt across desktop and mobile.'],['Landing pages','Focused pages with strong visual direction and an obvious next step.'],['E-commerce interfaces','Product browsing, filters, cart flows and conversion-aware UI.'],['Frontend implementation','Accessible HTML, CSS and JavaScript built from the design.'],['AI-assisted product demos','Useful customer journeys with responsible, reviewable AI behavior.'],['Design systems and polish','Typography, spacing, components, states and interaction details.'],['Existing UI improvements','Practical fixes for layout, responsiveness and usability.']];
+var WK=['skin-concierge','NEW-E-COMMERCE','ELZERO-TEMPLATE-3','m-pizza','FitnessTracker','flutter-expense-tracker','flutter-task-manager','flutter-starter-architecture','the-first-project-2-11-2022','casper-30-12-2022','bootsrap-project','e-commerce'];
 function pad(n){return n<10?'0'+n:n}
 function esc(v){return String(v==null?'':v).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
 function repoName(url){return String(url||'').split('/').pop()}
-function projectCard(p,i){var repo=repoName(p.url)||p.title,stack=(p.stack||[]).slice(0,5),actions='<a class="project-action" target="_blank" rel="noopener noreferrer" href="'+esc(p.url)+'">GitHub ↗</a>'+(p.liveUrl?'<a class="project-action primary" target="_blank" rel="noopener noreferrer" href="'+esc(p.liveUrl)+'">Live demo ↗</a>':'')+(p.caseStudyUrl?'<a class="project-action" href="'+esc(p.caseStudyUrl)+'">Case study</a>':'');return '<article class="card project-card rv in" data-repo="'+esc(repo)+'"><span class="num">/'+pad(i+1)+' · project</span><h3 class="serif" style="word-break:break-word">'+esc(p.title||repo)+'</h3><p class="project-desc">'+esc(p.description||'Project details on GitHub.')+'</p><div class="chips">'+stack.map(function(s){return '<i>'+esc(s)+'</i>'}).join('')+'</div><div class="project-actions">'+actions+'</div></article>'}
+function projectCard(p,i){var repo=repoName(p.url)||p.title,stack=(p.stack||[]).slice(0,5),sourceLabel=p.urlLabel||'GitHub ↗',sourceClass=p.urlIsPrimary?' primary':'',liveClass=p.urlIsPrimary?'':' primary',actions='<a class="project-action'+sourceClass+'" target="_blank" rel="noopener noreferrer" href="'+esc(p.url)+'">'+esc(sourceLabel)+'</a>'+(p.liveUrl?'<a class="project-action'+liveClass+'" target="_blank" rel="noopener noreferrer" href="'+esc(p.liveUrl)+'">Live demo ↗</a>':'')+(p.caseStudyUrl?'<a class="project-action" href="'+esc(p.caseStudyUrl)+'">Case study</a>':'');return '<article class="card project-card rv in" data-repo="'+esc(repo)+'"><span class="num">/'+pad(i+1)+' · project</span><h3 class="serif" style="word-break:break-word">'+esc(p.title||repo)+'</h3><p class="project-desc">'+esc(p.description||'Project details on GitHub.')+'</p><div class="chips">'+stack.map(function(s){return '<i>'+esc(s)+'</i>'}).join('')+'</div><div class="project-actions">'+actions+'</div></article>'}
 function fallbackProjects(){return WK.map(function(repo){return {title:repo,url:'https://github.com/mohammed-abd-elhafez/'+repo,description:'Open the repository for project details and source code.',stack:['GitHub']}})}
 $('#sv').innerHTML=SV.map(function(s,i){return '<div class="card rv"><span class="num">/'+pad(i+1)+'</span><h3 class="serif">'+s[0]+'</h3><p>'+s[1]+'</p></div>'}).join('');
 $('#wk').innerHTML=fallbackProjects().map(projectCard).join('');
@@ -172,7 +172,7 @@ var rings=[0,1,2].map(function(i){var r=new THREE.Mesh(new THREE.TorusGeometry(2
 var N=1100,pp=new Float32Array(N*3);for(var i=0;i<N;i++){var r=4+Math.random()*7,a=Math.random()*6.283,b=Math.acos(2*Math.random()-1);pp[i*3]=r*Math.sin(b)*Math.cos(a);pp[i*3+1]=r*Math.sin(b)*Math.sin(a);pp[i*3+2]=r*Math.cos(b)}
 var pg=new THREE.BufferGeometry();pg.setAttribute('position',new THREE.BufferAttribute(pp,3));
 var pts=new THREE.Points(pg,new THREE.PointsMaterial({size:.035,transparent:true,opacity:.8}));sc.add(pts);
-var orbit=new THREE.Group();g.add(orbit);var SK=['JavaScript','TypeScript','React','Node.js','SQL','Kotlin','Java','REST APIs'];
+var orbit=new THREE.Group();g.add(orbit);var SK=[];
 var pointer=new THREE.Vector2(),projected=new THREE.Vector3(),world=new THREE.Vector3();
 var key='',acc,fg;
 function label(txt){var c=document.createElement('canvas');c.width=256;c.height=64;var x=c.getContext('2d');x.font='500 26px monospace';x.textAlign='center';x.textBaseline='middle';x.fillStyle=fg;x.fillText(txt,128,32);var s=new THREE.Sprite(new THREE.SpriteMaterial({map:new THREE.CanvasTexture(c),transparent:true,depthWrite:false}));s.scale.set(1.6,.4,1);s.userData={baseScale:1.6,baseY:0,phase:Math.random()*6.283,influence:0};return s}
@@ -187,10 +187,10 @@ var clock=new THREE.Clock(),running=true;
 function frame(){if(document.hidden){running=false;return}var t=clock.getElapsedTime();theme();
 var h=Math.max(1,document.body.scrollHeight-innerHeight),p=Math.min(1,scrollY/h);sy+=(p-sy)*.06;
 var arr=core.geometry.attributes.position.array;for(var i=0;i<arr.length;i+=3){var x=base[i],y=base[i+1],z=base[i+2],d=1+.09*Math.sin(x*2.2+t*1.2)*Math.cos(y*2.1+t*.9)+.05*Math.sin(z*3+t*1.5);arr[i]=x*d;arr[i+1]=y*d;arr[i+2]=z*d}core.geometry.attributes.position.needsUpdate=true;
-core.rotation.y=t*.1;inner.rotation.set(t*.3,t*.4,0);rings.forEach(function(r,i){r.rotation.z=t*(.12+i*.07)});orbit.rotation.y=t*.15+sy*6;pts.rotation.y=t*.02;
+ core.rotation.y=t*.1;inner.rotation.set(t*.3,t*.4,0);rings.forEach(function(r,i){r.rotation.z=t*(.12+i*.07)});orbit.rotation.y=t*.15+sy*6;pts.rotation.y=t*.02;
 pointer.set(mx*2,-my*2);orbit.children.forEach(function(sp){sp.getWorldPosition(world);projected.copy(world).project(cam);var dx=projected.x-pointer.x,dy=projected.y-pointer.y,d=Math.sqrt(dx*dx+dy*dy),hit=Math.max(0,Math.min(1,1-d/.34));sp.userData.influence+=(hit-sp.userData.influence)*.14;var k=sp.userData.influence;sp.scale.set(sp.userData.baseScale*(1+k*.42),.4*(1+k*.42),1);sp.position.y=sp.userData.baseY+Math.sin(t*.9+sp.userData.phase)*.06+k*.12});
 g.rotation.y+=((mx*1.1+sy*3)-g.rotation.y)*.05;g.rotation.x+=((my*.7+sy*1.2)-g.rotation.x)*.05;
-cam.position.z=8+sy*5;g.position.y=sy*3;cv.style.opacity=(1-sy*.65).toFixed(2);ren.render(sc,cam);if(running)requestAnimationFrame(frame)}
+	cam.position.z=8+sy*5;g.position.y=sy*3;cv.style.opacity=(.32-sy*.12).toFixed(2);ren.render(sc,cam);if(running)requestAnimationFrame(frame)}
 document.addEventListener('visibilitychange',function(){if(!document.hidden&&!running){running=true;requestAnimationFrame(frame)}});frame()})}
 if(!reduce){var idle=window.requestIdleCallback;idle?idle(startScene,{timeout:1800}):setTimeout(startScene,1200)}
 })();

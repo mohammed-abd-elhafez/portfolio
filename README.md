@@ -1,10 +1,10 @@
 # Mohamed Abd Elhafez — portfolio
 
-Static portfolio site for [Mohamed Abd Elhafez](https://github.com/mohammed-abd-elhafez), deployed from this repository through GitHub Pages.
+Static portfolio site for [Mohamed Abd Elhafez](https://github.com/mohammed-abd-elhafez), positioned around web design, frontend implementation and AI-assisted product prototypes, and deployed through GitHub Pages.
 
 ## Homepage
 
-`index.html` follows the attached `MohamedAbdElhafez—SoftwareDeveloper.html` design: dark/light theme toggle, Three.js background scene, services, work cards, process, FAQ, and a mailto contact form. Project cards have a desktop spotlight/focus interaction with keyboard focus support.
+`index.html` presents web design and frontend work with a dark/light theme toggle, Three.js background scene, services, work cards, process, FAQ, and a mailto contact form. Project cards have a desktop spotlight/focus interaction with keyboard focus support.
 
 Three.js is loaded only during idle time on capable desktop devices. It is skipped on mobile, coarse-pointer, Save-Data, reduced-motion, and low-memory/low-core devices; the render loop also pauses while the tab is hidden. Mobile cards and forms disable backdrop blur to reduce GPU work.
 
@@ -12,10 +12,18 @@ The Work cards are populated from the current public repositories in `data/proje
 
 ## Current project data
 
-The homepage currently includes the 11 public repositories on the GitHub profile at the time of the latest update:
+The homepage currently includes selected public work plus the published Skin Concierge demo. The first projects are ordered for web-design review:
 
-- FitnessTracker
+- Skin Concierge
+- New E-Commerce
+- ELZERO-TEMPLATE-3
 - m-pizza
+- FitnessTracker
+
+Additional public repositories:
+
+- flutter-expense-tracker
+- flutter-task-manager
 - flutter-expense-tracker
 - flutter-task-manager
 - flutter-starter-architecture

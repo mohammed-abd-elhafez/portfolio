@@ -1,4 +1,58 @@
-[
+[{
+    "title": "Skin Concierge",
+    "description": "Independent AI-assisted service-discovery demo with source-linked cards, clear information hierarchy, published-price comparisons and a copyable visit plan.",
+    "stack": [
+      "Web Design",
+      "UX Writing",
+      "AI-assisted prototype",
+      "Responsive UI"
+    ],
+    "url": "https://gr3prvww4ajn.run.agentplace.io",
+    "urlLabel": "Open live agent ↗",
+    "urlIsPrimary": true,
+    "caseStudyUrl": "case-studies/skin-concierge.html",
+    "image": "assets/img/projects/skin-concierge.webp"
+  },
+  {
+    "title": "New E-Commerce",
+    "description": "Responsive e-commerce front end with product browsing, categories, cart interactions, JSON-backed content and reusable JavaScript modules.",
+    "stack": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Responsive UI"
+    ],
+    "url": "https://github.com/mohammed-abd-elhafez/NEW-E-COMMERCE",
+    "liveUrl": "https://mohammed-abd-elhafez.github.io/NEW-E-COMMERCE/",
+    "caseStudyUrl": "case-studies/new-e-commerce.html",
+    "image": "assets/img/projects/new-e-commerce.webp"
+  },
+  {
+    "title": "Elzero Template 3",
+    "description": "Multi-section responsive landing page with gallery, testimonials, pricing, navigation and interactive presentation sections.",
+    "stack": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Responsive UI"
+    ],
+    "url": "https://github.com/mohammed-abd-elhafez/ELZERO-TEMPLATE-3",
+    "liveUrl": "https://mohammed-abd-elhafez.github.io/ELZERO-TEMPLATE-3/",
+    "caseStudyUrl": "case-studies/elzero-template-3.html",
+    "image": "assets/img/projects/elzero-template-3.webp"
+  },
+  {
+    "title": "M Pizza",
+    "description": "Arabic-first ordering experience across a Flutter customer app, kitchen board, admin web and live order-tracking flow.",
+    "stack": [
+      "Product UI",
+      "Flutter",
+      "TypeScript",
+      "Responsive admin"
+    ],
+    "url": "https://github.com/mohammed-abd-elhafez/m-pizza",
+    "liveUrl": "https://mohammed-abd-elhafez.github.io/m-pizza/"
+  },
   {
     "title": "FitnessTracker",
     "description": "Privacy-first, offline-first iOS fitness tracker with daily health metrics, workout logging, goals, streaks and Arabic/English support.",
@@ -11,20 +65,6 @@
     ],
     "url": "https://github.com/mohammed-abd-elhafez/FitnessTracker",
     "liveUrl": "https://mohammed-abd-elhafez.github.io/FitnessTracker/"
-  },
-  {
-    "title": "M Pizza",
-    "description": "Arabic-first pizza ordering system with a Flutter customer app, kitchen board, admin web, REST API, OTP login and live order tracking.",
-    "stack": [
-      "Flutter",
-      "Dart",
-      "Node.js",
-      "TypeScript",
-      "Fastify",
-      "PostgreSQL"
-    ],
-    "url": "https://github.com/mohammed-abd-elhafez/m-pizza",
-    "liveUrl": "https://mohammed-abd-elhafez.github.io/m-pizza/"
   },
   {
     "title": "Expense Tracker",
@@ -65,34 +105,6 @@
     ],
     "url": "https://github.com/mohammed-abd-elhafez/flutter-starter-architecture",
     "liveUrl": "https://mohammed-abd-elhafez.github.io/flutter-starter-architecture/"
-  },
-  {
-    "title": "New E-Commerce",
-    "description": "Responsive e-commerce front end with product browsing, categories, cart interactions, JSON-backed content and reusable JavaScript modules.",
-    "stack": [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "JSON"
-    ],
-    "url": "https://github.com/mohammed-abd-elhafez/NEW-E-COMMERCE",
-    "liveUrl": "https://mohammed-abd-elhafez.github.io/NEW-E-COMMERCE/",
-    "caseStudyUrl": "case-studies/new-e-commerce.html",
-    "image": "assets/img/projects/new-e-commerce.webp"
-  },
-  {
-    "title": "Elzero Template 3",
-    "description": "Multi-section responsive landing page with gallery, testimonials, pricing, navigation and interactive presentation sections.",
-    "stack": [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "Responsive UI"
-    ],
-    "url": "https://github.com/mohammed-abd-elhafez/ELZERO-TEMPLATE-3",
-    "liveUrl": "https://mohammed-abd-elhafez.github.io/ELZERO-TEMPLATE-3/",
-    "caseStudyUrl": "case-studies/elzero-template-3.html",
-    "image": "assets/img/projects/elzero-template-3.webp"
   },
   {
     "title": "The First Project",
