@@ -1,14 +1,14 @@
 [{
     "title": "Skin Concierge",
-    "description": "Independent AI-assisted service-discovery demo with source-linked cards, clear information hierarchy, published-price comparisons and a copyable visit plan.",
+    "description": "Independent service-discovery demo with source-linked cards, clear information hierarchy, published-price comparisons and a copyable visit plan.",
     "stack": [
       "Web Design",
       "UX Writing",
-      "AI-assisted prototype",
+      "Responsive prototype",
       "Responsive UI"
     ],
     "url": "https://gr3prvww4ajn.run.agentplace.io",
-    "urlLabel": "Open live agent ↗",
+    "urlLabel": "Open live demo ↗",
     "urlIsPrimary": true,
     "caseStudyUrl": "case-studies/skin-concierge.html"
   },

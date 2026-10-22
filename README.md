@@ -1,6 +1,6 @@
 # Mohamed Abd Elhafez — portfolio
 
-Static portfolio site for [Mohamed Abd Elhafez](https://github.com/mohammed-abd-elhafez), positioned around web design, frontend implementation and AI-assisted product prototypes, and deployed through GitHub Pages.
+Static portfolio site for [Mohamed Abd Elhafez](https://github.com/mohammed-abd-elhafez), positioned around web design, frontend implementation and polished product prototypes, and deployed through GitHub Pages.
 
 ## Homepage
 
