@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mohammed-abd-elhafez.github.io/portfolio/sitemap.xml

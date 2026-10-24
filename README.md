@@ -1,60 +1,32 @@
 # Mohamed Abd Elhafez — portfolio
 
-Static portfolio site for [Mohamed Abd Elhafez](https://github.com/mohammed-abd-elhafez), positioned around web design, frontend implementation and polished product prototypes, and deployed through GitHub Pages.
+A static portfolio for Mohamed Abd Elhafez, populated from verified public GitHub projects and deployed to GitHub Pages.
 
-## Homepage
+## Live site
 
-`index.html` presents web design and frontend work with a dark/light theme toggle, Three.js background scene, services, work cards, process, FAQ, and a mailto contact form. Project cards have a desktop spotlight/focus interaction with keyboard focus support.
+https://mohammed-abd-elhafez.github.io/portfolio/
 
-Three.js is loaded only during idle time on capable desktop devices. It is skipped on mobile, coarse-pointer, Save-Data, reduced-motion, and low-memory/low-core devices; the render loop also pauses while the tab is hidden. Mobile cards and forms disable backdrop blur to reduce GPU work.
+## Run locally
 
-The Work cards are populated from the current public repositories in `data/projects.json`. Each card includes a project description, technology chips, a GitHub link, and a Live demo link when GitHub Pages is available. The repository slugs are kept exact so every card opens the matching GitHub project.
+Requires Node 18 or newer. No dependencies are required.
 
-## Current project data
-
-The homepage currently includes selected public work plus the published Skin Concierge demo. The first projects are ordered for web-design review:
-
-- Nawa Bilingual Landing
-- Landing Lab
-- Skin Concierge
-- New E-Commerce
-- ELZERO-TEMPLATE-3
-- m-pizza
-- FitnessTracker
-
-Additional public repositories:
-
-- flutter-expense-tracker
-- flutter-task-manager
-- flutter-expense-tracker
-- flutter-task-manager
-- flutter-starter-architecture
-- NEW-E-COMMERCE
-- ELZERO-TEMPLATE-3
-- the-first-project-2-11-2022
-- casper-30-12-2022
-- bootsrap-project
-- e-commerce
-
-When the GitHub account changes, update `data/projects.json` and the generated `WK` list in `index.html` while preserving the exact repository slugs.
-
-## Contact configuration
-
-The editable contact values are in the script inside `index.html`: email address, WhatsApp number, Upwork URL, response-time text, and Cairo timezone.
-
-The legal pages are informational templates, not legal advice. Review them for the final business setup before relying on them.
-
-## Local preview
-
-Serve the repository root with any static server, for example:
-
-```sh
-python3 -m http.server 4173
+```bash
+npm run build
+npm run dev
 ```
 
-Then open `http://localhost:4173/`.
+The generated site is written to `dist/`.
 
-## Adding a project
-Add one entry to `data/projects.json`; no code changes needed. A card appears automatically (if the repo is not already listed in `WK` in `index.html`) and the telescope preview works for it.
-Fields: `title`, `description`, `url` (GitHub repo, https), `stack` (array), optional `liveUrl` (https://<user>.github.io/...), optional `caseStudyUrl`, and optional `image` (preview path).
-Hovering a card fires the projector beam: screenshot first, then the live page with auto-scroll.
+## Structure
+
+- `src/data/site.json` — identity, social links and GitHub Pages base path.
+- `src/data/projects.json` — verified project summaries, stacks and repository/demo links.
+- `src/pages/` — homepage, about page and 404 page.
+- `src/templates/project.html` — case-study template.
+- `scripts/build.mjs` — dependency-free static-site build with placeholder validation.
+- `public/` — favicon, social image and robots file.
+- `.github/workflows/pages.yml` — automated GitHub Pages deployment.
+
+## Publishing
+
+Pushes to `main` build `dist/` and deploy it through the GitHub Pages environment. The site uses `/portfolio/` as its base path because it is hosted from the `portfolio` project repository.

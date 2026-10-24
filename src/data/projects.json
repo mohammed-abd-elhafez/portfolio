@@ -1,0 +1,112 @@
+[
+  {
+    "slug": "m-pizza",
+    "title": "M Pizza Ordering Platform",
+    "tagline": "An Arabic-first pizza ordering system with customer app, staff web and live order tracking.",
+    "year": "2026",
+    "role": "Product design and full-stack development",
+    "platforms": "Flutter, Web, API",
+    "tags": ["Flutter", "Arabic RTL", "Full stack"],
+    "c1": "#ff4d8d",
+    "c2": "#ff9a3d",
+    "tile": "phone",
+    "problem": "A pizza business needed one connected flow for customers, staff and delivery updates instead of disconnected ordering and fulfilment tools.",
+    "process": [
+      { "title": "Product flow", "text": "Mapped the customer ordering journey, staff workflow and live order states around the needs of an Arabic-first product." },
+      { "title": "Interface", "text": "Designed a clear mobile ordering experience and a focused staff workspace with status-driven interactions." },
+      { "title": "Build", "text": "Implemented a Flutter customer app with a Node.js TypeScript Fastify API, PostgreSQL and staff web tooling." }
+    ],
+    "result": "The repository contains a connected ordering platform foundation covering customer ordering, staff operations and live tracking.",
+    "stack": ["Flutter", "Dart", "Node.js", "TypeScript", "Fastify", "PostgreSQL"],
+    "repoUrl": "https://github.com/mohammed-abd-elhafez/m-pizza",
+    "liveUrl": "https://mohammed-abd-elhafez.github.io/m-pizza/"
+  },
+  {
+    "slug": "nawa-landing",
+    "title": "Nawa Bilingual RTL Landing Page",
+    "tagline": "A bilingual landing experience designed for Arabic-first communication and accessible direction switching.",
+    "year": "2026",
+    "role": "UX/UI design and frontend development",
+    "platforms": "Web",
+    "tags": ["React", "TypeScript", "RTL"],
+    "c1": "#4d6bff",
+    "c2": "#3dffc7",
+    "tile": "wide",
+    "problem": "A bilingual product needs more than translated strings: hierarchy, alignment, navigation and focus behavior must remain clear in both directions.",
+    "process": [
+      { "title": "Structure", "text": "Organized the landing page around a concise value proposition, proof points and clear conversion paths." },
+      { "title": "RTL system", "text": "Built the layout and content structure to support Arabic RTL alongside English without duplicating the page." },
+      { "title": "Build", "text": "Implemented the responsive interface with React, TypeScript and Vite, with accessibility considered in the interaction model." }
+    ],
+    "result": "A polished bilingual landing page is available for review with a clear responsive structure and RTL-aware presentation.",
+    "stack": ["React", "TypeScript", "Vite", "CSS", "Accessibility"],
+    "repoUrl": "https://github.com/mohammed-abd-elhafez/nawa-landing",
+    "liveUrl": "https://mohammed-abd-elhafez.github.io/nawa-landing/"
+  },
+  {
+    "slug": "landing-lab",
+    "title": "Landing Lab: Three UX/UI Directions",
+    "tagline": "A frontend exploration of three distinct landing-page directions for comparing hierarchy, tone and conversion flow.",
+    "year": "2026",
+    "role": "UX/UI exploration and frontend development",
+    "platforms": "Web",
+    "tags": ["UX/UI", "React", "Accessibility"],
+    "c1": "#3dffc7",
+    "c2": "#4d6bff",
+    "tile": "wide",
+    "problem": "Choosing a landing direction is difficult when visual style, content hierarchy and interaction decisions are mixed together in one unstructured draft.",
+    "process": [
+      { "title": "Explore", "text": "Created three focused directions so typography, spacing, tone and content emphasis could be compared side by side." },
+      { "title": "Refine", "text": "Kept the information architecture consistent while varying visual language and interaction details." },
+      { "title": "Build", "text": "Implemented the explorations as a responsive React and TypeScript site with reusable layout patterns." }
+    ],
+    "result": "The project turns early design exploration into a browsable comparison that makes direction selection easier to discuss.",
+    "stack": ["React", "TypeScript", "Vite", "CSS", "UX Design"],
+    "repoUrl": "https://github.com/mohammed-abd-elhafez/landing-lab",
+    "liveUrl": "https://mohammed-abd-elhafez.github.io/landing-lab/"
+  },
+  {
+    "slug": "fitness-tracker",
+    "title": "FitnessTracker SwiftUI Health App",
+    "tagline": "A privacy-first offline iOS fitness tracker with health metrics, goals, charts and a home-screen widget.",
+    "year": "2026",
+    "role": "iOS product design and SwiftUI development",
+    "platforms": "iOS",
+    "tags": ["SwiftUI", "HealthKit", "iOS"],
+    "c1": "#ff9a3d",
+    "c2": "#ff4d8d",
+    "tile": "phone",
+    "problem": "People need a focused way to understand workouts and progress without sending personal health data to a remote service.",
+    "process": [
+      { "title": "Information", "text": "Structured a daily dashboard around Apple Health metrics, workouts, goals, streaks and progress trends." },
+      { "title": "Accessibility", "text": "Included English and Arabic RTL considerations, VoiceOver support, reminders and a widget-oriented glanceable view." },
+      { "title": "Architecture", "text": "Designed a Swift 6 and SwiftUI foundation using SwiftData, HealthKit, Swift Charts, WidgetKit and a simplified Clean Architecture." }
+    ],
+    "result": "The public repository documents a privacy-first iOS product direction and its planned app, tests and widget targets for macOS implementation.",
+    "stack": ["Swift 6", "SwiftUI", "SwiftData", "HealthKit", "Swift Charts", "WidgetKit"],
+    "repoUrl": "https://github.com/mohammed-abd-elhafez/FitnessTracker",
+    "liveUrl": "https://mohammed-abd-elhafez.github.io/FitnessTracker/"
+  },
+  {
+    "slug": "new-e-commerce",
+    "title": "Modern E-Commerce Storefront",
+    "tagline": "A responsive storefront with product browsing, categories, promotional sections and cart interactions.",
+    "year": "2026",
+    "role": "Frontend development and interface design",
+    "platforms": "Web",
+    "tags": ["E-commerce", "JavaScript", "Responsive"],
+    "c1": "#ff4d8d",
+    "c2": "#3dffc7",
+    "tile": "wide",
+    "problem": "A product catalogue needs to make browsing, category discovery and shopping actions feel simple across screen sizes.",
+    "process": [
+      { "title": "Structure", "text": "Organized navigation, category sections, a promotional hero and product cards into a clear browsing flow." },
+      { "title": "Interaction", "text": "Added shopping actions and data-driven product presentation so the interface feels like a usable storefront rather than a static mockup." },
+      { "title": "Build", "text": "Implemented the responsive frontend with HTML, CSS, JavaScript and JSON data." }
+    ],
+    "result": "A live responsive storefront demonstrates the core browsing and shopping interaction patterns in a lightweight frontend.",
+    "stack": ["HTML", "CSS", "JavaScript", "JSON", "Responsive Design"],
+    "repoUrl": "https://github.com/mohammed-abd-elhafez/NEW-E-COMMERCE",
+    "liveUrl": "https://mohammed-abd-elhafez.github.io/NEW-E-COMMERCE/"
+  }
+]

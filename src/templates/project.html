@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>{{p.title}} · {{site.name}}</title>
+  <meta name="description" content="{{p.tagline}}">
+  <meta property="og:title" content="{{p.title}} · {{site.name}}">
+  <meta property="og:description" content="{{p.tagline}}">
+  <!-- @include head-common -->
+</head>
+<body data-page="project">
+  <!-- @include chrome -->
+
+  <main class="wrap page" id="main">
+    <article class="case" style="--c1:{{p.c1}};--c2:{{p.c2}}">
+      <p class="kicker"><i></i> Case study · {{p.year}}</p>
+      <h1 class="page-title">{{p.title}}</h1>
+      <p class="lede">{{p.tagline}}</p>
+      {{{linksHtml}}}
+
+      <dl class="facts">
+        <div><dt>Role</dt><dd>{{p.role}}</dd></div>
+        <div><dt>Platforms</dt><dd>{{p.platforms}}</dd></div>
+        <div><dt>Year</dt><dd>{{p.year}}</dd></div>
+      </dl>
+
+      <div class="stage {{p.tile}}" role="img" aria-label="Decorative visual for {{p.title}}">
+        <div class="mock"></div>
+      </div>
+
+      <div class="block">
+        <h2 class="label">Problem</h2>
+        <div class="prose"><p>{{p.problem}}</p></div>
+      </div>
+      <div class="block">
+        <h2 class="label">Process</h2>
+        <div class="prose">{{{processHtml}}}</div>
+      </div>
+      <div class="block">
+        <h2 class="label">Result</h2>
+        <div class="prose"><p>{{p.result}}</p></div>
+      </div>
+      <div class="block">
+        <h2 class="label">Stack</h2>
+        <div class="prose">{{{stackHtml}}}</div>
+      </div>
+
+      {{{nextHtml}}}
+    </article>
+  </main>
+
+  <!-- @include footer -->
+</body>
+</html>

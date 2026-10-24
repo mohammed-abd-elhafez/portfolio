@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>{{site.name}} · {{site.title}}</title>
+  <meta name="description" content="{{site.description}}">
+  <meta property="og:title" content="{{site.name}} · {{site.title}}">
+  <meta property="og:description" content="{{site.description}}">
+  <!-- @include head-common -->
+</head>
+<body data-page="home">
+  <!-- @include chrome -->
+
+  <main class="wrap" id="main">
+    <div class="hero">
+      <p class="kicker"><i></i> UI/UX designer · Full-stack · Android &amp; iOS</p>
+      <h1 aria-label="Design. Build. Ship.">
+        <span class="ln" aria-hidden="true"><span>Design.</span></span>
+        <span class="ln" aria-hidden="true"><span>Build.</span></span>
+        <span class="ln" aria-hidden="true"><span>Ship.</span></span>
+      </h1>
+      <div class="hero-foot">
+        <p>I design interfaces, write the code behind them and release them on the web, Android and iOS. One person from the first sketch to the store listing.</p>
+        <div class="cue"><b></b> Move your cursor</div>
+      </div>
+    </div>
+  </main>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="track">
+      <span>UI/UX</span><span>Full stack</span><span>Android</span><span>iOS</span><span>Prototyping</span><span>Design systems</span><span>APIs</span><span>Motion</span>
+      <span>UI/UX</span><span>Full stack</span><span>Android</span><span>iOS</span><span>Prototyping</span><span>Design systems</span><span>APIs</span><span>Motion</span>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <section id="work">
+      <div class="sec-head">
+        <h2>Selected work</h2>
+        <p class="note">Selected work from my public GitHub portfolio.</p>
+      </div>
+      <div class="rows">
+{{{projectRows}}}
+      </div>
+    </section>
+
+    <section id="craft">
+      <div class="sec-head">
+        <h2>Craft</h2>
+        <p class="note">Three disciplines, one workflow.</p>
+      </div>
+      <div class="cols">
+        <div class="col" style="--k:var(--hot)">
+          <h3>Interface design</h3>
+          <p>Research, flows, wireframes and high-fidelity screens, tested with real people before a line of code.</p>
+          <ul><li>User flows and wireframes</li><li>Prototypes and motion</li><li>Design systems</li><li>Accessibility reviews</li></ul>
+        </div>
+        <div class="col" style="--k:var(--volt)">
+          <h3>Full-stack build</h3>
+          <p>Front end, back end and the glue between them, built to be fast, tested and easy to hand over.</p>
+          <ul><li>Front-end apps</li><li>APIs and databases</li><li>Auth and payments</li><li>Deployment and monitoring</li></ul>
+        </div>
+        <div class="col" style="--k:var(--tang)">
+          <h3>Mobile apps</h3>
+          <p>Apps that follow each platform's conventions and feel native on both Android and iOS.</p>
+          <ul><li>Android</li><li>iOS</li><li>Cross-platform</li><li>Store release</li></ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2 class="big">Have a product to <em>ship?</em></h2>
+      <p class="lede">For new projects, reach out through GitHub.</p>
+      <ul class="links">
+        <li><a href="{{site.social.github}}" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="{{site.social.linkedin}}" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </section>
+  </div>
+
+  <!-- @include footer -->
+</body>
+</html>

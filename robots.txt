@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /thank-you.html
-Sitemap: https://mohammed-abd-elhafez.github.io/portfolio/sitemap.xml

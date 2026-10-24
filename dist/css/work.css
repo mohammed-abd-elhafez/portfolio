@@ -1,0 +1,35 @@
+/* Project rows on the homepage. Each row links to a case study. */
+.rows { border-top: 1px solid var(--line); }
+.row { position: relative; display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr) 150px; gap: 16px 32px; align-items: center; padding: 28px 8px; border-bottom: 1px solid var(--line); isolation: isolate; text-decoration: none; color: inherit; transition: padding 0.4s var(--ease); }
+.row::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(95deg, var(--c1), var(--c2)); transform: scaleY(0); transform-origin: bottom; transition: transform 0.45s var(--ease); opacity: 0.92; }
+.row h3 { margin: 0; font-family: var(--font-display); font-weight: 800; font-size: clamp(2rem, 5.2vw, 4.4rem); letter-spacing: -0.035em; line-height: 1; transition: transform 0.4s var(--ease), color 0.3s; }
+.row .what { margin: 8px 0 0; color: var(--fg-dim); transition: color 0.3s; }
+
+.tags { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.tags li { border: 1px solid var(--line); border-radius: 999px; padding: 5px 12px; transition: border-color 0.3s, color 0.3s; }
+
+.tile { justify-self: end; width: 150px; height: 96px; display: grid; place-items: center; transition: transform 0.5s var(--ease); }
+.tile i { display: block; position: relative; border-radius: 14px; background: linear-gradient(150deg, var(--c1), var(--c2)); box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.25) inset, 0 18px 40px -12px var(--c1); }
+.tile i::after { content: ""; position: absolute; left: 12%; right: 38%; top: 14%; height: 8%; border-radius: 99px; background: rgba(255, 255, 255, 0.75); box-shadow: 0 14px 0 0 rgba(255, 255, 255, 0.35), 0 28px 0 0 rgba(255, 255, 255, 0.2); }
+.tile.wide i { width: 140px; height: 88px; }
+.tile.phone i { width: 56px; height: 96px; border-radius: 12px; }
+.tile.phone i::after { right: 24%; }
+
+@media (hover: hover) {
+  .row:hover { padding-inline: 24px; }
+  .row:hover::before { transform: scaleY(1); }
+  .row:hover h3 { transform: translateX(8px); color: var(--ink); }
+  .row:hover .what { color: rgba(7, 6, 15, 0.8); }
+  .row:hover .tags li { border-color: rgba(7, 6, 15, 0.45); color: var(--ink); }
+  .row:hover .tile { transform: rotate(-6deg) scale(1.1); }
+}
+@media (max-width: 860px) {
+  .row { grid-template-columns: minmax(0, 1fr) auto; padding-inline: 0; }
+  .row .tags { grid-column: 1 / -1; grid-row: 3; }
+  .tile { grid-column: 2; grid-row: 1 / 3; align-self: start; width: 96px; height: 80px; }
+  .tile.wide i { width: 92px; height: 60px; }
+  .tile.phone i { width: 44px; height: 76px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .row, .row::before, .row h3, .tile { transition: none; }
+}

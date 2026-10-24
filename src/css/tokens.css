@@ -1,0 +1,23 @@
+/* Design tokens: change colors, fonts and spacing here. */
+:root {
+  --ink: #07060f;
+  --ink-2: #0e0c1c;
+  --fg: #f2eefd;
+  --fg-dim: #a29cc0;
+  --line: rgba(242, 238, 253, 0.14);
+  --hot: #ff4d8d;
+  --volt: #4d6bff;
+  --tang: #ff9a3d;
+  --mint: #3dffc7;
+
+  --font-display: "Syne", "Arial Black", system-ui, sans-serif;
+  --font-body: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "DM Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  --gutter-l: max(16px, env(safe-area-inset-left, 0px));
+  --gutter-r: max(16px, env(safe-area-inset-right, 0px));
+  --max: 1400px;
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  color-scheme: dark;
+}
