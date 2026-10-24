@@ -1,0 +1,12 @@
+/* Three-column skills section. */
+.cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px 32px; }
+.col { border-top: 3px solid var(--k); padding-top: 22px; }
+.col h3 { margin: 0 0 12px; font-family: var(--font-display); font-weight: 800; font-size: clamp(1.6rem, 2.6vw, 2.3rem); letter-spacing: -0.02em; line-height: 1.05; }
+.col p { margin: 0 0 20px; color: var(--fg-dim); max-width: 26rem; }
+.col ul { margin: 0; padding: 0; list-style: none; font-family: var(--font-mono); font-size: 13px; display: grid; gap: 8px; }
+.col li { display: flex; gap: 10px; align-items: baseline; }
+.col li::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--k); flex: none; transform: translateY(-1px); }
+
+@media (max-width: 860px) {
+  .cols { grid-template-columns: minmax(0, 1fr); }
+}
