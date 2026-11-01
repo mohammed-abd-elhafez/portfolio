@@ -1,8 +1,8 @@
 [
   {
     "slug": "harbor-dashboard",
-    "title": "Harbor Goods Dark Ops Dashboard",
-    "tagline": "A dark, data-dense store analytics dashboard with a live order feed, a real API and five working pages.",
+    "title": "Harbor Goods",
+    "tagline": "A dark, data-dense analytics dashboard for an online store, with a live order feed, a real API and six working pages.",
     "year": "2026",
     "role": "Product design, frontend and backend development",
     "platforms": "Web, API",
@@ -11,9 +11,6 @@
       "TypeScript",
       "Node.js"
     ],
-    "c1": "#F5B544",
-    "c2": "#6CB6FF",
-    "tile": "wide",
     "problem": "Operators need to read revenue, orders, traffic and stock at a glance, and a dark operations view has to stay legible, accessible and responsive under dense data.",
     "process": [
       {
@@ -42,12 +39,50 @@
       "Playwright"
     ],
     "repoUrl": "https://github.com/mohammed-abd-elhafez/harbor-dashboard-b",
-    "liveUrl": "https://mohammed-abd-elhafez.github.io/harbor-dashboard-b/"
+    "liveUrl": "https://mohammed-abd-elhafez.github.io/harbor-dashboard-b/",
+    "subtitle": "Store operations dashboard",
+    "status": "",
+    "ar": {
+      "title": "Harbor Goods",
+      "subtitle": "لوحة تشغيل متجر إلكتروني",
+      "tagline": "لوحة تحليلات داكنة وكثيفة البيانات لمتجر إلكتروني، فيها تدفق طلبات مباشر وAPI حقيقي وست صفحات تعمل.",
+      "role": "تصميم المنتج وتطوير الواجهة والخادم",
+      "platforms": "ويب، API",
+      "problem": "يحتاج مديرو المتاجر إلى قراءة الإيرادات والطلبات والزيارات والمخزون بنظرة واحدة، وعلى الواجهة الداكنة أن تبقى مقروءة وسهلة الوصول ومتجاوبة رغم كثافة البيانات.",
+      "process": [
+        {
+          "title": "الواجهة",
+          "text": "بنيت لوحة داكنة مطابقة للتصميم المرجعي: مؤشرات أداء، ومخطط إيرادات SVG مرسوم يدويًا، وتدفق طلبات مباشر، ومخطط مصادر الزيارات، وتنبيهات المخزون، وراجعتها على مقاسات الديسكتوب والموبايل."
+        },
+        {
+          "title": "الخادم",
+          "text": "كتبت API بـNode.js باستخدام Hono وSQLite وZod: تسجيل دخول بجلسات مع حد للمحاولات، وServer-Sent Events للطلبات المباشرة، ونقاط وصول للطلبات والمنتجات والعملاء والتحليلات والإعدادات."
+        },
+        {
+          "title": "الجودة والنشر",
+          "text": "غطيت العمل باختبارات وحدات وAPI وPlaywright تشمل فحوص إتاحة، ثم نشرته كخدمة Docker واحدة على Render بجانب نسخة تجريبية ببيانات وهمية على GitHub Pages."
+        }
+      ],
+      "result": "لوحة تعمل بصفحات النظرة العامة والطلبات والمنتجات والعملاء والتحليلات والإعدادات، متاحة كنسخة تجريبية بدون تسجيل دخول وكنسخة full-stack منشورة.",
+      "status": "",
+      "stack": [
+        "React",
+        "TypeScript",
+        "Vite",
+        "Tailwind CSS",
+        "Node.js",
+        "Hono",
+        "SQLite",
+        "Docker",
+        "Playwright"
+      ]
+    },
+    "detail": false
   },
   {
     "slug": "m-pizza",
-    "title": "M Pizza Ordering Platform",
-    "tagline": "An Arabic-first pizza ordering system with customer app, staff web and live order tracking.",
+    "title": "M Pizza",
+    "tagline": "A pizza ordering system built Arabic-first: customer app, staff web tool and live order tracking.",
     "year": "2026",
     "role": "Product design and full-stack development",
     "platforms": "Flutter, Web, API",
@@ -56,9 +91,6 @@
       "Arabic RTL",
       "Full stack"
     ],
-    "c1": "#ff4d8d",
-    "c2": "#ff9a3d",
-    "tile": "phone",
     "problem": "A pizza business needed one connected flow for customers, staff and delivery updates instead of disconnected ordering and fulfilment tools.",
     "process": [
       {
@@ -74,7 +106,7 @@
         "text": "Implemented a Flutter customer app with a Node.js TypeScript Fastify API, PostgreSQL and staff web tooling."
       }
     ],
-    "result": "The repository contains a connected ordering platform foundation covering customer ordering, staff operations and live tracking.",
+    "result": "The customer ordering flow is live in Arabic, from the menu to checkout. The repository holds the Flutter app, the Fastify API with PostgreSQL and the staff web tool.",
     "stack": [
       "Flutter",
       "Dart",
@@ -84,12 +116,47 @@
       "PostgreSQL"
     ],
     "repoUrl": "https://github.com/mohammed-abd-elhafez/m-pizza",
-    "liveUrl": "https://mohammed-abd-elhafez.github.io/m-pizza/"
+    "liveUrl": "https://mohammed-abd-elhafez.github.io/m-pizza/",
+    "subtitle": "Arabic-first ordering platform",
+    "status": "",
+    "ar": {
+      "title": "إم بيتزا",
+      "subtitle": "منصة طلبات عربية أولًا",
+      "tagline": "نظام طلب بيتزا مبني بالعربية أولًا: تطبيق للعملاء، وأداة ويب للموظفين، وتتبع مباشر للطلبات.",
+      "role": "تصميم المنتج والتطوير الكامل",
+      "platforms": "Flutter، ويب، API",
+      "problem": "احتاج مطعم بيتزا إلى مسار واحد متصل يجمع العملاء والموظفين وتحديثات التوصيل، بدل أدوات طلب وتجهيز منفصلة.",
+      "process": [
+        {
+          "title": "مسار المنتج",
+          "text": "رسمت رحلة العميل في الطلب، وسير عمل الموظفين، وحالات الطلب المباشرة، حول احتياجات منتج عربي أولًا."
+        },
+        {
+          "title": "الواجهة",
+          "text": "صممت تجربة طلب واضحة على الموبايل، ومساحة عمل مركزة للموظفين تعتمد على حالة الطلب."
+        },
+        {
+          "title": "البناء",
+          "text": "نفذت تطبيق العملاء بـFlutter مع API بـNode.js وTypeScript وFastify وقاعدة PostgreSQL وأدوات ويب للموظفين."
+        }
+      ],
+      "result": "مسار طلب العميل يعمل الآن بالعربية من القائمة حتى إتمام الطلب. ويضم المستودع تطبيق Flutter وواجهة Fastify مع PostgreSQL وأداة الموظفين على الويب.",
+      "status": "",
+      "stack": [
+        "Flutter",
+        "Dart",
+        "Node.js",
+        "TypeScript",
+        "Fastify",
+        "PostgreSQL"
+      ]
+    },
+    "detail": true
   },
   {
     "slug": "nawa-landing",
-    "title": "Nawa Bilingual RTL Landing Page",
-    "tagline": "A bilingual landing experience designed for Arabic-first communication and accessible direction switching.",
+    "title": "Nawa",
+    "tagline": "A landing page for a bilingual studio where Arabic and English are designed as equals, not translated.",
     "year": "2026",
     "role": "UX/UI design and frontend development",
     "platforms": "Web",
@@ -98,9 +165,6 @@
       "TypeScript",
       "RTL"
     ],
-    "c1": "#4d6bff",
-    "c2": "#3dffc7",
-    "tile": "wide",
     "problem": "A bilingual product needs more than translated strings: hierarchy, alignment, navigation and focus behavior must remain clear in both directions.",
     "process": [
       {
@@ -116,7 +180,7 @@
         "text": "Implemented the responsive interface with React, TypeScript and Vite, with accessibility considered in the interaction model."
       }
     ],
-    "result": "A polished bilingual landing page is available for review with a clear responsive structure and RTL-aware presentation.",
+    "result": "The page is live. Switching to Arabic mirrors the layout, navigation, icons and focus order, not just the words, as the two screenshots below show.",
     "stack": [
       "React",
       "TypeScript",
@@ -125,12 +189,46 @@
       "Accessibility"
     ],
     "repoUrl": "https://github.com/mohammed-abd-elhafez/nawa-landing",
-    "liveUrl": "https://mohammed-abd-elhafez.github.io/nawa-landing/"
+    "liveUrl": "https://mohammed-abd-elhafez.github.io/nawa-landing/",
+    "subtitle": "Bilingual RTL landing page",
+    "status": "Independent concept, not a real studio",
+    "ar": {
+      "title": "نواة",
+      "subtitle": "صفحة هبوط ثنائية اللغة",
+      "tagline": "صفحة هبوط لاستوديو ثنائي اللغة، العربية والإنجليزية فيها مصممتان على قدم المساواة لا مترجمتان.",
+      "role": "تصميم تجربة وواجهة المستخدم وتطوير الواجهة",
+      "platforms": "ويب",
+      "problem": "المنتج ثنائي اللغة يحتاج أكثر من نصوص مترجمة: التسلسل البصري والمحاذاة والتنقل وسلوك التركيز يجب أن تبقى واضحة في الاتجاهين.",
+      "process": [
+        {
+          "title": "الهيكل",
+          "text": "نظمت الصفحة حول عرض قيمة مختصر، ونقاط إثبات، ومسارات تحويل واضحة."
+        },
+        {
+          "title": "نظام RTL",
+          "text": "بنيت التخطيط والمحتوى ليدعما العربية من اليمين إلى اليسار بجانب الإنجليزية دون تكرار الصفحة."
+        },
+        {
+          "title": "البناء",
+          "text": "نفذت الواجهة المتجاوبة بـReact وTypeScript وVite مع مراعاة الإتاحة في نموذج التفاعل."
+        }
+      ],
+      "result": "الصفحة تعمل الآن. التبديل إلى العربية يعكس التخطيط والتنقل والأيقونات وترتيب التركيز، لا الكلمات فقط، كما تُظهر الصورتان بالأسفل.",
+      "status": "مفهوم مستقل، وليس استوديو حقيقيًا",
+      "stack": [
+        "React",
+        "TypeScript",
+        "Vite",
+        "CSS",
+        "Accessibility"
+      ]
+    },
+    "detail": true
   },
   {
     "slug": "landing-lab",
-    "title": "Landing Lab: Three UX/UI Directions",
-    "tagline": "A frontend exploration of three distinct landing-page directions for comparing hierarchy, tone and conversion flow.",
+    "title": "Landing Lab",
+    "tagline": "One fictional product page designed three ways, so hierarchy, tone and conversion can be compared side by side.",
     "year": "2026",
     "role": "UX/UI exploration and frontend development",
     "platforms": "Web",
@@ -139,9 +237,6 @@
       "React",
       "Accessibility"
     ],
-    "c1": "#3dffc7",
-    "c2": "#4d6bff",
-    "tile": "wide",
     "problem": "Choosing a landing direction is difficult when visual style, content hierarchy and interaction decisions are mixed together in one unstructured draft.",
     "process": [
       {
@@ -157,7 +252,7 @@
         "text": "Implemented the explorations as a responsive React and TypeScript site with reusable layout patterns."
       }
     ],
-    "result": "The project turns early design exploration into a browsable comparison that makes direction selection easier to discuss.",
+    "result": "All three variants are live: minimal editorial, product-led SaaS and bold expressive, built from the same content so only the design changes.",
     "stack": [
       "React",
       "TypeScript",
@@ -166,12 +261,46 @@
       "UX Design"
     ],
     "repoUrl": "https://github.com/mohammed-abd-elhafez/landing-lab",
-    "liveUrl": "https://mohammed-abd-elhafez.github.io/landing-lab/"
+    "liveUrl": "https://mohammed-abd-elhafez.github.io/landing-lab/",
+    "subtitle": "Three directions, one product",
+    "status": "Independent experiment",
+    "ar": {
+      "title": "Landing Lab",
+      "subtitle": "ثلاثة اتجاهات لمنتج واحد",
+      "tagline": "صفحة منتج خيالي واحدة مصممة بثلاث طرق، لمقارنة التسلسل البصري والنبرة ومسار التحويل جنبًا إلى جنب.",
+      "role": "استكشاف تصميم تجربة وواجهة المستخدم وتطوير الواجهة",
+      "platforms": "ويب",
+      "problem": "يصعب اختيار اتجاه لصفحة الهبوط عندما تختلط قرارات الشكل والمحتوى والتفاعل في مسودة واحدة غير منظمة.",
+      "process": [
+        {
+          "title": "الاستكشاف",
+          "text": "صممت ثلاثة اتجاهات مركزة لمقارنة الخطوط والمسافات والنبرة وأولوية المحتوى جنبًا إلى جنب."
+        },
+        {
+          "title": "التحسين",
+          "text": "ثبّت هيكل المعلومات في الثلاثة وغيّرت فقط اللغة البصرية وتفاصيل التفاعل."
+        },
+        {
+          "title": "البناء",
+          "text": "نفذت الاتجاهات الثلاثة كموقع متجاوب بـReact وTypeScript بأنماط تخطيط قابلة لإعادة الاستخدام."
+        }
+      ],
+      "result": "الاتجاهات الثلاثة تعمل الآن: تحريري بسيط، ومنتج SaaS، وجريء معبّر، وكلها مبنية من نفس المحتوى فلا يتغير إلا التصميم.",
+      "status": "تجربة مستقلة",
+      "stack": [
+        "React",
+        "TypeScript",
+        "Vite",
+        "CSS",
+        "UX Design"
+      ]
+    },
+    "detail": true
   },
   {
     "slug": "fitness-tracker",
-    "title": "FitnessTracker SwiftUI Health App",
-    "tagline": "A privacy-first offline iOS fitness tracker with health metrics, goals, charts and a home-screen widget.",
+    "title": "FitnessTracker",
+    "tagline": "An offline-first iOS fitness tracker with health metrics, goals, charts and a home-screen widget. No data leaves the phone.",
     "year": "2026",
     "role": "iOS product design and SwiftUI development",
     "platforms": "iOS",
@@ -180,9 +309,6 @@
       "HealthKit",
       "iOS"
     ],
-    "c1": "#ff9a3d",
-    "c2": "#ff4d8d",
-    "tile": "phone",
     "problem": "People need a focused way to understand workouts and progress without sending personal health data to a remote service.",
     "process": [
       {
@@ -198,7 +324,7 @@
         "text": "Designed a Swift 6 and SwiftUI foundation using SwiftData, HealthKit, Swift Charts, WidgetKit and a simplified Clean Architecture."
       }
     ],
-    "result": "The public repository documents a privacy-first iOS product direction and its planned app, tests and widget targets for macOS implementation.",
+    "result": "The Swift source is public and readable. The Xcode app, test and widget targets still need to be set up on a Mac before the app can be built and released.",
     "stack": [
       "Swift 6",
       "SwiftUI",
@@ -208,12 +334,47 @@
       "WidgetKit"
     ],
     "repoUrl": "https://github.com/mohammed-abd-elhafez/FitnessTracker",
-    "liveUrl": "https://mohammed-abd-elhafez.github.io/FitnessTracker/"
+    "liveUrl": "https://mohammed-abd-elhafez.github.io/FitnessTracker/",
+    "subtitle": "Private iOS health app",
+    "status": "In progress: source code only",
+    "ar": {
+      "title": "FitnessTracker",
+      "subtitle": "تطبيق صحة خاص لـiOS",
+      "tagline": "تطبيق لياقة لـiOS يعمل دون اتصال، فيه مؤشرات صحية وأهداف ورسوم بيانية وويدجت للشاشة الرئيسية. لا تغادر بياناتك الهاتف.",
+      "role": "تصميم منتج iOS وتطوير SwiftUI",
+      "platforms": "iOS",
+      "problem": "يحتاج الناس إلى طريقة مركزة لفهم تمارينهم وتقدمهم دون إرسال بياناتهم الصحية إلى خدمة خارجية.",
+      "process": [
+        {
+          "title": "المعلومات",
+          "text": "بنيت لوحة يومية حول مقاييس Apple Health والتمارين والأهداف وأيام الالتزام واتجاهات التقدم."
+        },
+        {
+          "title": "الإتاحة",
+          "text": "دعمت الإنجليزية والعربية من اليمين إلى اليسار، وVoiceOver، والتذكيرات، وعرضًا سريعًا عبر الويدجت."
+        },
+        {
+          "title": "المعمارية",
+          "text": "صممت أساسًا بـSwift 6 وSwiftUI باستخدام SwiftData وHealthKit وSwift Charts وWidgetKit ومعمارية Clean مبسطة."
+        }
+      ],
+      "result": "الكود المصدري بـSwift منشور ومقروء. ما زالت أهداف التطبيق والاختبارات والويدجت في Xcode تحتاج إلى إعداد على Mac قبل بناء التطبيق وإطلاقه.",
+      "status": "قيد التطوير: الكود المصدري فقط",
+      "stack": [
+        "Swift 6",
+        "SwiftUI",
+        "SwiftData",
+        "HealthKit",
+        "Swift Charts",
+        "WidgetKit"
+      ]
+    },
+    "detail": false
   },
   {
     "slug": "new-e-commerce",
-    "title": "Modern E-Commerce Storefront",
-    "tagline": "A responsive storefront with product browsing, categories, promotional sections and cart interactions.",
+    "title": "Storefront",
+    "tagline": "A responsive sportswear storefront with category browsing, promotional sections and cart interactions.",
     "year": "2026",
     "role": "Frontend development and interface design",
     "platforms": "Web",
@@ -222,9 +383,6 @@
       "JavaScript",
       "Responsive"
     ],
-    "c1": "#ff4d8d",
-    "c2": "#3dffc7",
-    "tile": "wide",
     "problem": "A product catalogue needs to make browsing, category discovery and shopping actions feel simple across screen sizes.",
     "process": [
       {
@@ -240,7 +398,7 @@
         "text": "Implemented the responsive frontend with HTML, CSS, JavaScript and JSON data."
       }
     ],
-    "result": "A live responsive storefront demonstrates the core browsing and shopping interaction patterns in a lightweight frontend.",
+    "result": "The storefront is live and responsive, covering the core browse-and-buy patterns in a lightweight front end with no framework.",
     "stack": [
       "HTML",
       "CSS",
@@ -249,6 +407,40 @@
       "Responsive Design"
     ],
     "repoUrl": "https://github.com/mohammed-abd-elhafez/NEW-E-COMMERCE",
-    "liveUrl": "https://mohammed-abd-elhafez.github.io/NEW-E-COMMERCE/"
+    "liveUrl": "https://mohammed-abd-elhafez.github.io/NEW-E-COMMERCE/",
+    "subtitle": "Responsive e-commerce front end",
+    "status": "Front-end practice build",
+    "ar": {
+      "title": "متجر إلكتروني",
+      "subtitle": "واجهة متجر متجاوبة",
+      "tagline": "واجهة متجر ملابس رياضية متجاوبة، فيها تصفح للأقسام وأقسام ترويجية وتفاعلات سلة الشراء.",
+      "role": "تطوير الواجهة وتصميمها",
+      "platforms": "ويب",
+      "problem": "يحتاج كتالوج المنتجات إلى أن يجعل التصفح واكتشاف الأقسام والشراء بسيطًا على كل المقاسات.",
+      "process": [
+        {
+          "title": "الهيكل",
+          "text": "نظمت التنقل وأقسام الفئات والقسم الترويجي وبطاقات المنتجات في مسار تصفح واضح."
+        },
+        {
+          "title": "التفاعل",
+          "text": "أضفت إجراءات الشراء وعرض المنتجات من البيانات، لتبدو الواجهة متجرًا قابلًا للاستخدام لا تصميمًا ثابتًا."
+        },
+        {
+          "title": "البناء",
+          "text": "نفذت الواجهة المتجاوبة بـHTML وCSS وJavaScript وبيانات JSON."
+        }
+      ],
+      "result": "المتجر يعمل الآن ومتجاوب، ويغطي أنماط التصفح والشراء الأساسية في واجهة خفيفة بدون إطار عمل.",
+      "status": "مشروع تدريبي للواجهة",
+      "stack": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "JSON",
+        "Responsive Design"
+      ]
+    },
+    "detail": false
   }
 ]

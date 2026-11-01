@@ -1,12 +1,10 @@
-<canvas id="gl" aria-hidden="true"></canvas>
-<div class="cur" id="cur" aria-hidden="true"></div>
-<a class="skip" href="#main">Skip to content</a>
+<a class="skip" href="#main">{{t.skip}}</a>
 <header class="top">
-  <a class="you" href="{{site.base}}">{{site.name}}</a>
-  <nav aria-label="Sections">
-    <a href="{{site.base}}#work">Work</a>
-    <a href="{{site.base}}#craft">Craft</a>
-    <a href="{{site.base}}about.html">About</a>
-    <a href="{{site.base}}#contact">Contact</a>
+  <a class="you" href="{{L}}">{{t.name}}</a>
+  <nav aria-label="{{t.navWork}}">
+    <a href="{{L}}#work">{{t.navWork}}</a>
+    <a href="{{L}}about.html">{{t.navAbout}}</a>
+    <a class="lang" href="{{alt.href}}" hreflang="{{t.switchLang}}" lang="{{t.switchLang}}" aria-label="{{t.switchAria}}">{{t.switchLabel}}</a>
+    <a class="btn btn-solid btn-sm" href="{{mail}}">{{t.navEmail}}</a>
   </nav>
 </header>
