@@ -1,15 +1,15 @@
 // Static site build. No dependencies, Node 18+.
-//   src/pages/*.html        -> dist/*.html
-//   src/templates/project.html + src/data/projects.json -> dist/projects/<slug>.html
-//   src/css, src/js         -> dist/css, dist/js
-//   public/*                -> dist/ (copied as is)
-//   sitemap.xml             -> generated from the pages above
+//   src/pages/*.html                              -> dist/<page> and dist/ar/<page>
+//   src/templates/project.html + projects.json    -> dist/projects/<slug>.html and dist/ar/projects/<slug>.html
+//   src/css, src/js                               -> dist/css, dist/js
+//   public/*                                      -> dist/ (copied as is)
+//   sitemap.xml                                   -> generated
 //
-// Template syntax inside HTML files:
+// Template syntax:
 //   <!-- @include name -->   inserts src/partials/name.html
-//   {{site.name}}            value from src/data/site.json (HTML-escaped)
-//   {{p.title}}              value from the current project (project pages only)
-//   {{{projectRows}}}        raw, pre-built HTML (not escaped)
+//   {{t.key}}                locale string from site.json i18n (escaped)
+//   {{site.key}} {{p.key}}   site / project values (escaped)
+//   {{{raw}}}                pre-built HTML (not escaped)
 
 import { readFileSync, writeFileSync, mkdirSync, readdirSync, cpSync, rmSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
@@ -25,7 +25,6 @@ const write = (p, content) => {
   mkdirSync(dirname(p), { recursive: true });
   writeFileSync(p, content);
 };
-
 const esc = (v) =>
   String(v).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
@@ -53,88 +52,172 @@ function render(html, ctx, where) {
 const site = readJSON(join(SRC, 'data', 'site.json'));
 const projects = readJSON(join(SRC, 'data', 'projects.json'));
 const year = new Date().getFullYear();
-const basePath = site.base || '/';
-const internal = (path) => `${basePath}${String(path).replace(/^\//, '')}`;
+const BASE = site.base;
+const LOCALES = ['en', 'ar'];
+const root = (lang) => (lang === 'en' ? BASE : `${BASE}ar/`);
+const img = (name) => `${BASE}img/work/${name}`;
 
-// ---------------------------------------------------------------- html fragments
-const projectRows = projects
-  .map(
-    (p) => `      <a class="row" href="${esc(internal(`/projects/${p.slug}.html`))}" style="--c1:${esc(p.c1)};--c2:${esc(p.c2)}">
-        <div><h3>${esc(p.title)}</h3><p class="what">${esc(p.tagline)}</p></div>
-        <ul class="tags">${p.tags.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>
-        <div class="tile ${esc(p.tile)}"><i></i></div>
-      </a>`
-  )
-  .join('\n');
+// Arabic view of a project: Arabic fields over the English ones.
+const localize = (p, lang) => (lang === 'ar' ? { ...p, ...p.ar } : p);
+
+const arrow = `<svg class="ico" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+const ext = `<svg class="ico" viewBox="0 0 20 20" aria-hidden="true"><path d="M7 5h8v8M15 5 5 15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+
+// ---------------------------------------------------------------- fragments
+const statusHtml = (p) => (p.status ? `<span class="status">${esc(p.status)}</span>` : '');
+
+const workRows = (lang, t) =>
+  projects
+    .map((raw, i) => {
+      const p = localize(raw, lang);
+      return `      <li class="work-row">
+        <a href="${esc(root(lang))}projects/${esc(p.slug)}.html">
+          <span class="work-n">${String(i + 1).padStart(2, '0')}</span>
+          <span class="work-text">
+            <span class="work-title">${esc(p.title)} <span class="work-sub">${esc(p.subtitle)}</span></span>
+            <span class="work-tag">${esc(p.tagline)}</span>
+            <span class="work-meta">${p.tags.map((x) => `<span>${esc(x)}</span>`).join('')}${statusHtml(p)}</span>
+          </span>
+          <img class="work-img" src="${esc(img(`${p.slug}.webp`))}" alt="" width="1600" height="1000" loading="lazy" decoding="async">
+          <span class="work-go" aria-hidden="true">${arrow}</span>
+        </a>
+      </li>`;
+    })
+    .join('\n');
+
+const galleryData = (lang) =>
+  JSON.stringify(
+    projects.map((raw) => {
+      const p = localize(raw, lang);
+      return {
+        title: p.title,
+        sub: p.subtitle,
+        tags: p.tags,
+        status: p.status || '',
+        tex: img(`${p.slug}-tex.jpg`),
+        src: img(`${p.slug}.webp`),
+        href: `${root(lang)}projects/${p.slug}.html`,
+      };
+    })
+  ).replace(/</g, '\\u003c');
+
+const fallbackSlides = (lang) =>
+  projects
+    .map((raw) => {
+      const p = localize(raw, lang);
+      return `<li><a href="${esc(root(lang))}projects/${esc(p.slug)}.html"><img src="${esc(img(`${p.slug}.webp`))}" alt="${esc(p.title)}: ${esc(p.subtitle)}" width="1600" height="1000" decoding="async"><span>${esc(p.title)}</span></a></li>`;
+    })
+    .join('');
 
 const processHtml = (p) =>
   `<ol class="steps">${p.process
     .map((s) => `<li><h3>${esc(s.title)}</h3><p>${esc(s.text)}</p></li>`)
     .join('')}</ol>`;
 
-const stackHtml = (p) => `<ul class="tags">${p.stack.map((s) => `<li>${esc(s)}</li>`).join('')}</ul>`;
+const stackHtml = (p) => `<ul class="chips">${p.stack.map((s) => `<li>${esc(s)}</li>`).join('')}</ul>`;
 
-const nextHtml = (i) => {
-  const n = projects[(i + 1) % projects.length];
-  return `<a class="next" href="${esc(internal(`/projects/${n.slug}.html`))}" style="--c1:${esc(n.c1)};--c2:${esc(n.c2)}">
-      <span class="note">Next project</span>
-      <strong>${esc(n.title)}</strong>
-    </a>`;
+const linksHtml = (p, t) =>
+  `<p class="case-links">${
+    p.liveUrl ? `<a class="btn btn-solid" href="${esc(p.liveUrl)}" target="_blank" rel="noopener">${esc(t.caseLive)} ${ext}</a>` : ''
+  }${p.repoUrl ? `<a class="btn" href="${esc(p.repoUrl)}" target="_blank" rel="noopener">${esc(t.caseRepo)} ${ext}</a>` : ''}</p>`;
+
+const screensHtml = (p, lang) => {
+  const shots = [];
+  if (p.detail) shots.push(`<figure class="shot shot-wide"><img src="${esc(img(`${p.slug}-detail.webp`))}" alt="" loading="lazy" decoding="async"></figure>`);
+  shots.push(`<figure class="shot shot-phone"><img src="${esc(img(`${p.slug}-mobile.webp`))}" alt="" loading="lazy" decoding="async"></figure>`);
+  if (p.slug === 'nawa-landing') {
+    shots.push(`<figure class="shot shot-phone"><img src="${esc(img('nawa-landing-ar-mobile.webp'))}" alt="" loading="lazy" decoding="async"></figure>`);
+    shots.push(`<figure class="shot shot-wide"><img src="${esc(img('nawa-landing-ar.webp'))}" alt="" loading="lazy" decoding="async"></figure>`);
+  }
+  return `<div class="shots">${shots.join('')}</div>`;
 };
 
-const linksHtml = (p) => `<p class="project-links">${p.liveUrl ? `<a href="${esc(p.liveUrl)}" target="_blank" rel="noopener">Live project</a>` : ''}${p.liveUrl && p.repoUrl ? ' · ' : ''}${p.repoUrl ? `<a href="${esc(p.repoUrl)}" target="_blank" rel="noopener">GitHub repository</a>` : ''}</p>`;
+const nextHtml = (i, lang, t) => {
+  const n = localize(projects[(i + 1) % projects.length], lang);
+  return `<a class="next" href="${esc(root(lang))}projects/${esc(n.slug)}.html">
+      <span class="next-label">${esc(t.caseNext)}</span>
+      <span class="next-title">${esc(n.title)} <span>${esc(n.subtitle)}</span></span>
+      <img src="${esc(img(`${n.slug}.webp`))}" alt="" loading="lazy" decoding="async">
+    </a>`;
+};
 
 // ---------------------------------------------------------------- build
 rmSync(DIST, { recursive: true, force: true });
 mkdirSync(DIST, { recursive: true });
-
 const urls = [];
 
-// 1. standalone pages
-for (const file of readdirSync(join(SRC, 'pages')).filter((f) => f.endsWith('.html'))) {
-  const path = file === 'index.html' ? '/' : `/${file}`;
-  const ctx = { site, year, page: { path }, projectRows };
-  write(join(DIST, file), render(read(join(SRC, 'pages', file)), ctx, `pages/${file}`));
-  if (file !== '404.html') urls.push(path);
-}
-
-// 2. project pages
-const template = read(join(SRC, 'templates', 'project.html'));
-projects.forEach((p, i) => {
-  const path = `/projects/${p.slug}.html`;
-  const ctx = {
+const common = (lang, path) => {
+  const t = site.i18n[lang];
+  const other = t.switchLang;
+  return {
     site,
     year,
-    page: { path },
-    p,
-    processHtml: processHtml(p),
-    stackHtml: stackHtml(p),
-    nextHtml: nextHtml(i),
-    linksHtml: linksHtml(p),
+    t,
+    L: root(lang),
+    page: { path: `${lang === 'en' ? '' : 'ar/'}${path}` },
+    alt: { href: `${root(other)}${path}` },
+    altEn: `${site.url}/${path}`,
+    altAr: `${site.url}/ar/${path}`,
   };
-  write(join(DIST, 'projects', `${p.slug}.html`), render(template, ctx, `projects/${p.slug}`));
-  urls.push(path);
-});
+};
 
-// 3. assets
+for (const lang of LOCALES) {
+  const t = site.i18n[lang];
+  const out = lang === 'en' ? DIST : join(DIST, 'ar');
+
+  for (const file of readdirSync(join(SRC, 'pages')).filter((f) => f.endsWith('.html'))) {
+    const path = file === 'index.html' ? '' : file;
+    const ctx = {
+      ...common(lang, path),
+      workRows: workRows(lang, t),
+      galleryData: galleryData(lang),
+      fallbackSlides: fallbackSlides(lang),
+      mail: `mailto:${site.email}`,
+    };
+    write(join(out, file), render(read(join(SRC, 'pages', file)), ctx, `pages/${file} (${lang})`));
+    if (file !== '404.html') urls.push(ctx.page.path);
+  }
+
+  const template = read(join(SRC, 'templates', 'project.html'));
+  projects.forEach((raw, i) => {
+    const p = localize(raw, lang);
+    const path = `projects/${p.slug}.html`;
+    const ctx = {
+      ...common(lang, path),
+      p,
+      cover: img(`${p.slug}.webp`),
+      statusHtml: statusHtml(p),
+      processHtml: processHtml(p),
+      stackHtml: stackHtml(p),
+      linksHtml: linksHtml(p, t),
+      screensHtml: screensHtml(p, lang),
+      nextHtml: nextHtml(i, lang, t),
+      mail: `mailto:${site.email}`,
+    };
+    write(join(out, path), render(template, ctx, `${path} (${lang})`));
+    urls.push(ctx.page.path);
+  });
+}
+
 cpSync(join(SRC, 'css'), join(DIST, 'css'), { recursive: true });
 cpSync(join(SRC, 'js'), join(DIST, 'js'), { recursive: true });
 if (existsSync(join(ROOT, 'public'))) cpSync(join(ROOT, 'public'), DIST, { recursive: true });
 
-// 4. sitemap
 const base = site.url.replace(/\/$/, '');
 write(
   join(DIST, 'sitemap.xml'),
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls
-    .map((u) => `  <url><loc>${base}${u}</loc></url>`)
+    .map((u) => `  <url><loc>${base}/${u}</loc></url>`)
     .join('\n')}\n</urlset>\n`
 );
 
 console.log(`Built ${urls.length} pages into dist/`);
-if (!site.name || !site.url || !site.base) throw new Error('site.json must define name, url and base');
-if (projects.length === 0) throw new Error('projects.json must contain at least one project');
+if (!site.name || !site.url || !site.base || !site.email) throw new Error('site.json must define name, url, base and email');
 for (const p of projects) {
-  if (p.sample || /replace this|your name|yourdomain/i.test(JSON.stringify(p))) {
-    throw new Error(`Placeholder text remains in project ${p.slug}`);
+  for (const k of ['title', 'subtitle', 'tagline', 'problem', 'result']) {
+    if (!p[k] || !p.ar?.[k === 'subtitle' ? 'subtitle' : k]) throw new Error(`Project ${p.slug} is missing ${k} (en or ar)`);
+  }
+  for (const f of [`${p.slug}.webp`, `${p.slug}-tex.jpg`, `${p.slug}-mobile.webp`].concat(p.detail ? [`${p.slug}-detail.webp`] : [])) {
+    if (!existsSync(join(ROOT, 'public', 'img', 'work', f))) throw new Error(`Missing image ${f}`);
   }
 }

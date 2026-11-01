@@ -1,83 +1,65 @@
 <!doctype html>
-<html lang="en">
+<html lang="{{t.lang}}" dir="{{t.dir}}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>{{site.name}} · {{site.title}}</title>
-  <meta name="description" content="{{site.description}}">
-  <meta property="og:title" content="{{site.name}} · {{site.title}}">
-  <meta property="og:description" content="{{site.description}}">
+  <title>{{t.name}} · {{t.title}}</title>
+  <meta name="description" content="{{t.description}}">
+  <meta property="og:title" content="{{t.name}} · {{t.title}}">
+  <meta property="og:description" content="{{t.description}}">
   <!-- @include head-common -->
 </head>
 <body data-page="home">
   <!-- @include chrome -->
 
-  <main class="wrap" id="main">
-    <div class="hero">
-      <p class="kicker"><i></i> UI/UX designer · Full-stack · Android &amp; iOS</p>
-      <h1 aria-label="Design. Build. Ship.">
-        <span class="ln" aria-hidden="true"><span>Design.</span></span>
-        <span class="ln" aria-hidden="true"><span>Build.</span></span>
-        <span class="ln" aria-hidden="true"><span>Ship.</span></span>
-      </h1>
-      <div class="hero-foot">
-        <p>I design interfaces, write the code behind them and release them on the web, Android and iOS. One person from the first sketch to the store listing.</p>
-        <div class="cue"><b></b> Move your cursor</div>
+  <main id="main">
+    <section class="stage" aria-labelledby="hero-h">
+      <div class="stage-copy">
+        <h1 id="hero-h">{{t.heroTitle}}</h1>
+        <p class="lede">{{t.heroLede}}</p>
       </div>
-    </div>
+
+      <div class="gallery" data-gallery>
+        <canvas class="gl" aria-hidden="true"></canvas>
+        <ul class="strip" aria-label="{{t.workTitle}}">{{{fallbackSlides}}}</ul>
+        <div class="gallery-ui" role="group" aria-roledescription="carousel" aria-label="{{t.galleryLabel}}" tabindex="0">
+          <p class="caption" aria-live="polite">
+            <span class="cap-n" dir="ltr"></span>
+            <a class="cap-title" href="#"></a>
+            <span class="cap-sub"></span>
+          </p>
+          <div class="ctrls">
+            <span class="hint">{{t.galleryHint}}</span>
+            <button class="round" type="button" data-step="-1" aria-label="{{t.prev}}"><svg class="ico flip" viewBox="0 0 20 20" aria-hidden="true"><path d="M16 10H5M9 5l-5 5 5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <button class="round" type="button" data-step="1" aria-label="{{t.next}}"><svg class="ico flip" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <a class="btn btn-solid open" href="#">{{t.open}}</a>
+          </div>
+        </div>
+        <script type="application/json" id="gallery-data">{{{galleryData}}}</script>
+      </div>
+    </section>
+
+    <section class="work" id="work" aria-labelledby="work-h">
+      <div class="sec-head">
+        <h2 id="work-h">{{t.workTitle}}</h2>
+        <p class="lede">{{t.workLede}}</p>
+      </div>
+      <ol class="work-list">
+{{{workRows}}}
+      </ol>
+    </section>
+
+    <section class="how" aria-labelledby="how-h">
+      <h2 id="how-h">{{t.howTitle}}</h2>
+      <ol class="how-line">
+        <li><h3>{{t.how1t}}</h3><p>{{t.how1}}</p></li>
+        <li><h3>{{t.how2t}}</h3><p>{{t.how2}}</p></li>
+        <li><h3>{{t.how3t}}</h3><p>{{t.how3}}</p></li>
+      </ol>
+    </section>
+
+    <!-- @include contact -->
   </main>
-
-  <div class="marquee" aria-hidden="true">
-    <div class="track">
-      <span>UI/UX</span><span>Full stack</span><span>Android</span><span>iOS</span><span>Prototyping</span><span>Design systems</span><span>APIs</span><span>Motion</span>
-      <span>UI/UX</span><span>Full stack</span><span>Android</span><span>iOS</span><span>Prototyping</span><span>Design systems</span><span>APIs</span><span>Motion</span>
-    </div>
-  </div>
-
-  <div class="wrap">
-    <section id="work">
-      <div class="sec-head">
-        <h2>Selected work</h2>
-        <p class="note">Selected work from my public GitHub portfolio.</p>
-      </div>
-      <div class="rows">
-{{{projectRows}}}
-      </div>
-    </section>
-
-    <section id="craft">
-      <div class="sec-head">
-        <h2>Craft</h2>
-        <p class="note">Three disciplines, one workflow.</p>
-      </div>
-      <div class="cols">
-        <div class="col" style="--k:var(--hot)">
-          <h3>Interface design</h3>
-          <p>Research, flows, wireframes and high-fidelity screens, tested with real people before a line of code.</p>
-          <ul><li>User flows and wireframes</li><li>Prototypes and motion</li><li>Design systems</li><li>Accessibility reviews</li></ul>
-        </div>
-        <div class="col" style="--k:var(--volt)">
-          <h3>Full-stack build</h3>
-          <p>Front end, back end and the glue between them, built to be fast, tested and easy to hand over.</p>
-          <ul><li>Front-end apps</li><li>APIs and databases</li><li>Auth and payments</li><li>Deployment and monitoring</li></ul>
-        </div>
-        <div class="col" style="--k:var(--tang)">
-          <h3>Mobile apps</h3>
-          <p>Apps that follow each platform's conventions and feel native on both Android and iOS.</p>
-          <ul><li>Android</li><li>iOS</li><li>Cross-platform</li><li>Store release</li></ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <h2 class="big">Have a product to <em>ship?</em></h2>
-      <p class="lede">For new projects, reach out through GitHub.</p>
-      <ul class="links">
-        <li><a href="{{site.social.github}}" target="_blank" rel="noopener">GitHub</a></li>
-        <li><a href="{{site.social.linkedin}}" target="_blank" rel="noopener">LinkedIn</a></li>
-      </ul>
-    </section>
-  </div>
 
   <!-- @include footer -->
 </body>

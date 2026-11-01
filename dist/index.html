@@ -1,140 +1,169 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Mohamed Abd Elhafez · Frontend &amp; Product Developer</title>
-  <meta name="description" content="Frontend and product developer building accessible web experiences, Arabic-first interfaces and mobile products with React, Flutter and SwiftUI.">
-  <meta property="og:title" content="Mohamed Abd Elhafez · Frontend &amp; Product Developer">
-  <meta property="og:description" content="Frontend and product developer building accessible web experiences, Arabic-first interfaces and mobile products with React, Flutter and SwiftUI.">
-  <meta name="theme-color" content="#07060f">
-<meta name="color-scheme" content="dark">
+  <title>Mohamed Abd Elhafez · Designer who ships web &amp; mobile apps</title>
+  <meta name="description" content="Mohamed Abd Elhafez designs and builds web and mobile apps, from the first sketch to release, in English and Arabic.">
+  <meta property="og:title" content="Mohamed Abd Elhafez · Designer who ships web &amp; mobile apps">
+  <meta property="og:description" content="Mohamed Abd Elhafez designs and builds web and mobile apps, from the first sketch to release, in English and Arabic.">
+  <meta name="theme-color" content="#E7E8EC">
+<meta name="color-scheme" content="light">
 <link rel="icon" href="/portfolio/favicon.svg" type="image/svg+xml">
 <link rel="canonical" href="https://mohammed-abd-elhafez.github.io/portfolio/">
+<link rel="alternate" hreflang="en" href="https://mohammed-abd-elhafez.github.io/portfolio/">
+<link rel="alternate" hreflang="ar" href="https://mohammed-abd-elhafez.github.io/portfolio/ar/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Mohamed Abd Elhafez">
 <meta property="og:image" content="https://mohammed-abd-elhafez.github.io/portfolio/og.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Hanken+Grotesk:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="/portfolio/css/main.css">
-<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js"}}</script>
-<script type="module" src="/portfolio/js/main.js"></script>
+<link rel="preload" href="/portfolio/fonts/readex-pro-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/portfolio/css/site.css">
+<script type="module" src="/portfolio/js/site.js"></script>
 </head>
 <body data-page="home">
-  <canvas id="gl" aria-hidden="true"></canvas>
-<div class="cur" id="cur" aria-hidden="true"></div>
-<a class="skip" href="#main">Skip to content</a>
+  <a class="skip" href="#main">Skip to content</a>
 <header class="top">
   <a class="you" href="/portfolio/">Mohamed Abd Elhafez</a>
-  <nav aria-label="Sections">
+  <nav aria-label="Work">
     <a href="/portfolio/#work">Work</a>
-    <a href="/portfolio/#craft">Craft</a>
     <a href="/portfolio/about.html">About</a>
-    <a href="/portfolio/#contact">Contact</a>
+    <a class="lang" href="/portfolio/ar/" hreflang="ar" lang="ar" aria-label="Read this page in Arabic">العربية</a>
+    <a class="btn btn-solid btn-sm" href="mailto:cryptoyar3d@gmail.com">Email me</a>
   </nav>
 </header>
 
-  <main class="wrap" id="main">
-    <div class="hero">
-      <p class="kicker"><i></i> UI/UX designer · Full-stack · Android &amp; iOS</p>
-      <h1 aria-label="Design. Build. Ship.">
-        <span class="ln" aria-hidden="true"><span>Design.</span></span>
-        <span class="ln" aria-hidden="true"><span>Build.</span></span>
-        <span class="ln" aria-hidden="true"><span>Ship.</span></span>
-      </h1>
-      <div class="hero-foot">
-        <p>I design interfaces, write the code behind them and release them on the web, Android and iOS. One person from the first sketch to the store listing.</p>
-        <div class="cue"><b></b> Move your cursor</div>
+  <main id="main">
+    <section class="stage" aria-labelledby="hero-h">
+      <div class="stage-copy">
+        <h1 id="hero-h">Designer who ships web &amp; mobile apps.</h1>
+        <p class="lede">I design the screens, write the code behind them and put them live. Six projects below, every one of them open to try.</p>
       </div>
-    </div>
+
+      <div class="gallery" data-gallery>
+        <canvas class="gl" aria-hidden="true"></canvas>
+        <ul class="strip" aria-label="Every project, live"><li><a href="/portfolio/projects/harbor-dashboard.html"><img src="/portfolio/img/work/harbor-dashboard.webp" alt="Harbor Goods: Store operations dashboard" width="1600" height="1000" decoding="async"><span>Harbor Goods</span></a></li><li><a href="/portfolio/projects/m-pizza.html"><img src="/portfolio/img/work/m-pizza.webp" alt="M Pizza: Arabic-first ordering platform" width="1600" height="1000" decoding="async"><span>M Pizza</span></a></li><li><a href="/portfolio/projects/nawa-landing.html"><img src="/portfolio/img/work/nawa-landing.webp" alt="Nawa: Bilingual RTL landing page" width="1600" height="1000" decoding="async"><span>Nawa</span></a></li><li><a href="/portfolio/projects/landing-lab.html"><img src="/portfolio/img/work/landing-lab.webp" alt="Landing Lab: Three directions, one product" width="1600" height="1000" decoding="async"><span>Landing Lab</span></a></li><li><a href="/portfolio/projects/fitness-tracker.html"><img src="/portfolio/img/work/fitness-tracker.webp" alt="FitnessTracker: Private iOS health app" width="1600" height="1000" decoding="async"><span>FitnessTracker</span></a></li><li><a href="/portfolio/projects/new-e-commerce.html"><img src="/portfolio/img/work/new-e-commerce.webp" alt="Storefront: Responsive e-commerce front end" width="1600" height="1000" decoding="async"><span>Storefront</span></a></li></ul>
+        <div class="gallery-ui" role="group" aria-roledescription="carousel" aria-label="Projects. Drag or use the arrow keys to browse; press Enter to open one." tabindex="0">
+          <p class="caption" aria-live="polite">
+            <span class="cap-n" dir="ltr"></span>
+            <a class="cap-title" href="#"></a>
+            <span class="cap-sub"></span>
+          </p>
+          <div class="ctrls">
+            <span class="hint">Drag to browse</span>
+            <button class="round" type="button" data-step="-1" aria-label="Previous project"><svg class="ico flip" viewBox="0 0 20 20" aria-hidden="true"><path d="M16 10H5M9 5l-5 5 5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <button class="round" type="button" data-step="1" aria-label="Next project"><svg class="ico flip" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <a class="btn btn-solid open" href="#">Open case study</a>
+          </div>
+        </div>
+        <script type="application/json" id="gallery-data">[{"title":"Harbor Goods","sub":"Store operations dashboard","tags":["React","TypeScript","Node.js"],"status":"","tex":"/portfolio/img/work/harbor-dashboard-tex.jpg","src":"/portfolio/img/work/harbor-dashboard.webp","href":"/portfolio/projects/harbor-dashboard.html"},{"title":"M Pizza","sub":"Arabic-first ordering platform","tags":["Flutter","Arabic RTL","Full stack"],"status":"","tex":"/portfolio/img/work/m-pizza-tex.jpg","src":"/portfolio/img/work/m-pizza.webp","href":"/portfolio/projects/m-pizza.html"},{"title":"Nawa","sub":"Bilingual RTL landing page","tags":["React","TypeScript","RTL"],"status":"Independent concept, not a real studio","tex":"/portfolio/img/work/nawa-landing-tex.jpg","src":"/portfolio/img/work/nawa-landing.webp","href":"/portfolio/projects/nawa-landing.html"},{"title":"Landing Lab","sub":"Three directions, one product","tags":["UX/UI","React","Accessibility"],"status":"Independent experiment","tex":"/portfolio/img/work/landing-lab-tex.jpg","src":"/portfolio/img/work/landing-lab.webp","href":"/portfolio/projects/landing-lab.html"},{"title":"FitnessTracker","sub":"Private iOS health app","tags":["SwiftUI","HealthKit","iOS"],"status":"In progress: source code only","tex":"/portfolio/img/work/fitness-tracker-tex.jpg","src":"/portfolio/img/work/fitness-tracker.webp","href":"/portfolio/projects/fitness-tracker.html"},{"title":"Storefront","sub":"Responsive e-commerce front end","tags":["E-commerce","JavaScript","Responsive"],"status":"Front-end practice build","tex":"/portfolio/img/work/new-e-commerce-tex.jpg","src":"/portfolio/img/work/new-e-commerce.webp","href":"/portfolio/projects/new-e-commerce.html"}]</script>
+      </div>
+    </section>
+
+    <section class="work" id="work" aria-labelledby="work-h">
+      <div class="sec-head">
+        <h2 id="work-h">Every project, live</h2>
+        <p class="lede">Each one links to a working demo and its source code, so you can judge the work yourself.</p>
+      </div>
+      <ol class="work-list">
+      <li class="work-row">
+        <a href="/portfolio/projects/harbor-dashboard.html">
+          <span class="work-n">01</span>
+          <span class="work-text">
+            <span class="work-title">Harbor Goods <span class="work-sub">Store operations dashboard</span></span>
+            <span class="work-tag">A dark, data-dense analytics dashboard for an online store, with a live order feed, a real API and six working pages.</span>
+            <span class="work-meta"><span>React</span><span>TypeScript</span><span>Node.js</span></span>
+          </span>
+          <img class="work-img" src="/portfolio/img/work/harbor-dashboard.webp" alt="" width="1600" height="1000" loading="lazy" decoding="async">
+          <span class="work-go" aria-hidden="true"><svg class="ico" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+      </li>
+      <li class="work-row">
+        <a href="/portfolio/projects/m-pizza.html">
+          <span class="work-n">02</span>
+          <span class="work-text">
+            <span class="work-title">M Pizza <span class="work-sub">Arabic-first ordering platform</span></span>
+            <span class="work-tag">A pizza ordering system built Arabic-first: customer app, staff web tool and live order tracking.</span>
+            <span class="work-meta"><span>Flutter</span><span>Arabic RTL</span><span>Full stack</span></span>
+          </span>
+          <img class="work-img" src="/portfolio/img/work/m-pizza.webp" alt="" width="1600" height="1000" loading="lazy" decoding="async">
+          <span class="work-go" aria-hidden="true"><svg class="ico" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+      </li>
+      <li class="work-row">
+        <a href="/portfolio/projects/nawa-landing.html">
+          <span class="work-n">03</span>
+          <span class="work-text">
+            <span class="work-title">Nawa <span class="work-sub">Bilingual RTL landing page</span></span>
+            <span class="work-tag">A landing page for a bilingual studio where Arabic and English are designed as equals, not translated.</span>
+            <span class="work-meta"><span>React</span><span>TypeScript</span><span>RTL</span><span class="status">Independent concept, not a real studio</span></span>
+          </span>
+          <img class="work-img" src="/portfolio/img/work/nawa-landing.webp" alt="" width="1600" height="1000" loading="lazy" decoding="async">
+          <span class="work-go" aria-hidden="true"><svg class="ico" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+      </li>
+      <li class="work-row">
+        <a href="/portfolio/projects/landing-lab.html">
+          <span class="work-n">04</span>
+          <span class="work-text">
+            <span class="work-title">Landing Lab <span class="work-sub">Three directions, one product</span></span>
+            <span class="work-tag">One fictional product page designed three ways, so hierarchy, tone and conversion can be compared side by side.</span>
+            <span class="work-meta"><span>UX/UI</span><span>React</span><span>Accessibility</span><span class="status">Independent experiment</span></span>
+          </span>
+          <img class="work-img" src="/portfolio/img/work/landing-lab.webp" alt="" width="1600" height="1000" loading="lazy" decoding="async">
+          <span class="work-go" aria-hidden="true"><svg class="ico" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+      </li>
+      <li class="work-row">
+        <a href="/portfolio/projects/fitness-tracker.html">
+          <span class="work-n">05</span>
+          <span class="work-text">
+            <span class="work-title">FitnessTracker <span class="work-sub">Private iOS health app</span></span>
+            <span class="work-tag">An offline-first iOS fitness tracker with health metrics, goals, charts and a home-screen widget. No data leaves the phone.</span>
+            <span class="work-meta"><span>SwiftUI</span><span>HealthKit</span><span>iOS</span><span class="status">In progress: source code only</span></span>
+          </span>
+          <img class="work-img" src="/portfolio/img/work/fitness-tracker.webp" alt="" width="1600" height="1000" loading="lazy" decoding="async">
+          <span class="work-go" aria-hidden="true"><svg class="ico" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+      </li>
+      <li class="work-row">
+        <a href="/portfolio/projects/new-e-commerce.html">
+          <span class="work-n">06</span>
+          <span class="work-text">
+            <span class="work-title">Storefront <span class="work-sub">Responsive e-commerce front end</span></span>
+            <span class="work-tag">A responsive sportswear storefront with category browsing, promotional sections and cart interactions.</span>
+            <span class="work-meta"><span>E-commerce</span><span>JavaScript</span><span>Responsive</span><span class="status">Front-end practice build</span></span>
+          </span>
+          <img class="work-img" src="/portfolio/img/work/new-e-commerce.webp" alt="" width="1600" height="1000" loading="lazy" decoding="async">
+          <span class="work-go" aria-hidden="true"><svg class="ico" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+      </li>
+      </ol>
+    </section>
+
+    <section class="how" aria-labelledby="how-h">
+      <h2 id="how-h">From sketch to store</h2>
+      <ol class="how-line">
+        <li><h3>Design</h3><p>Flows and screens worked out first, in both languages when the product needs it, so building starts from decisions rather than guesses.</p></li>
+        <li><h3>Build</h3><p>Front end, API and database, tested and documented so another developer can pick it up.</p></li>
+        <li><h3>Ship</h3><p>Deployed to the web or packaged for Android and iOS, with a link you can open on day one.</p></li>
+      </ol>
+    </section>
+
+    <section class="contact" id="contact" aria-labelledby="contact-h">
+  <h2 id="contact-h">Got a product to build?</h2>
+  <p class="lede">Tell me what it should do and who it is for. I reply within two working days.</p>
+  <div class="mail-row">
+    <a class="mail" href="mailto:cryptoyar3d@gmail.com" dir="ltr">cryptoyar3d@gmail.com</a>
+    <button class="btn copy" type="button" data-copy="cryptoyar3d@gmail.com" data-done="Copied">Copy address</button>
+  </div>
+  <p class="contact-alt"><a href="https://github.com/mohammed-abd-elhafez" target="_blank" rel="noopener">Code on GitHub</a></p>
+</section>
   </main>
 
-  <div class="marquee" aria-hidden="true">
-    <div class="track">
-      <span>UI/UX</span><span>Full stack</span><span>Android</span><span>iOS</span><span>Prototyping</span><span>Design systems</span><span>APIs</span><span>Motion</span>
-      <span>UI/UX</span><span>Full stack</span><span>Android</span><span>iOS</span><span>Prototyping</span><span>Design systems</span><span>APIs</span><span>Motion</span>
-    </div>
-  </div>
-
-  <div class="wrap">
-    <section id="work">
-      <div class="sec-head">
-        <h2>Selected work</h2>
-        <p class="note">Selected work from my public GitHub portfolio.</p>
-      </div>
-      <div class="rows">
-      <a class="row" href="/portfolio/projects/harbor-dashboard.html" style="--c1:#F5B544;--c2:#6CB6FF">
-        <div><h3>Harbor Goods Dark Ops Dashboard</h3><p class="what">A dark, data-dense store analytics dashboard with a live order feed, a real API and five working pages.</p></div>
-        <ul class="tags"><li>React</li><li>TypeScript</li><li>Node.js</li></ul>
-        <div class="tile wide"><i></i></div>
-      </a>
-      <a class="row" href="/portfolio/projects/m-pizza.html" style="--c1:#ff4d8d;--c2:#ff9a3d">
-        <div><h3>M Pizza Ordering Platform</h3><p class="what">An Arabic-first pizza ordering system with customer app, staff web and live order tracking.</p></div>
-        <ul class="tags"><li>Flutter</li><li>Arabic RTL</li><li>Full stack</li></ul>
-        <div class="tile phone"><i></i></div>
-      </a>
-      <a class="row" href="/portfolio/projects/nawa-landing.html" style="--c1:#4d6bff;--c2:#3dffc7">
-        <div><h3>Nawa Bilingual RTL Landing Page</h3><p class="what">A bilingual landing experience designed for Arabic-first communication and accessible direction switching.</p></div>
-        <ul class="tags"><li>React</li><li>TypeScript</li><li>RTL</li></ul>
-        <div class="tile wide"><i></i></div>
-      </a>
-      <a class="row" href="/portfolio/projects/landing-lab.html" style="--c1:#3dffc7;--c2:#4d6bff">
-        <div><h3>Landing Lab: Three UX/UI Directions</h3><p class="what">A frontend exploration of three distinct landing-page directions for comparing hierarchy, tone and conversion flow.</p></div>
-        <ul class="tags"><li>UX/UI</li><li>React</li><li>Accessibility</li></ul>
-        <div class="tile wide"><i></i></div>
-      </a>
-      <a class="row" href="/portfolio/projects/fitness-tracker.html" style="--c1:#ff9a3d;--c2:#ff4d8d">
-        <div><h3>FitnessTracker SwiftUI Health App</h3><p class="what">A privacy-first offline iOS fitness tracker with health metrics, goals, charts and a home-screen widget.</p></div>
-        <ul class="tags"><li>SwiftUI</li><li>HealthKit</li><li>iOS</li></ul>
-        <div class="tile phone"><i></i></div>
-      </a>
-      <a class="row" href="/portfolio/projects/new-e-commerce.html" style="--c1:#ff4d8d;--c2:#3dffc7">
-        <div><h3>Modern E-Commerce Storefront</h3><p class="what">A responsive storefront with product browsing, categories, promotional sections and cart interactions.</p></div>
-        <ul class="tags"><li>E-commerce</li><li>JavaScript</li><li>Responsive</li></ul>
-        <div class="tile wide"><i></i></div>
-      </a>
-      </div>
-    </section>
-
-    <section id="craft">
-      <div class="sec-head">
-        <h2>Craft</h2>
-        <p class="note">Three disciplines, one workflow.</p>
-      </div>
-      <div class="cols">
-        <div class="col" style="--k:var(--hot)">
-          <h3>Interface design</h3>
-          <p>Research, flows, wireframes and high-fidelity screens, tested with real people before a line of code.</p>
-          <ul><li>User flows and wireframes</li><li>Prototypes and motion</li><li>Design systems</li><li>Accessibility reviews</li></ul>
-        </div>
-        <div class="col" style="--k:var(--volt)">
-          <h3>Full-stack build</h3>
-          <p>Front end, back end and the glue between them, built to be fast, tested and easy to hand over.</p>
-          <ul><li>Front-end apps</li><li>APIs and databases</li><li>Auth and payments</li><li>Deployment and monitoring</li></ul>
-        </div>
-        <div class="col" style="--k:var(--tang)">
-          <h3>Mobile apps</h3>
-          <p>Apps that follow each platform's conventions and feel native on both Android and iOS.</p>
-          <ul><li>Android</li><li>iOS</li><li>Cross-platform</li><li>Store release</li></ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <h2 class="big">Have a product to <em>ship?</em></h2>
-      <p class="lede">For new projects, reach out through GitHub.</p>
-      <ul class="links">
-        <li><a href="https://github.com/mohammed-abd-elhafez" target="_blank" rel="noopener">GitHub</a></li>
-        <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a></li>
-      </ul>
-    </section>
-  </div>
-
-  <footer>
+  <footer class="foot">
   <span>© 2026 Mohamed Abd Elhafez</span>
-  <span>Built with WebGL and a lot of sine waves</span>
+  <span>Designed and built by hand. WebGL gallery, no frameworks.</span>
 </footer>
 </body>
 </html>
