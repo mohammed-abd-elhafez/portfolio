@@ -71,10 +71,10 @@ const workRows = (lang, t) =>
     .map((raw, i) => {
       const p = localize(raw, lang);
       return `      <li class="work-row">
-        <a href="${esc(root(lang))}projects/${esc(p.slug)}.html">
+        <a href="${esc(root(lang))}projects/${esc(p.slug)}.html" data-tex="${esc(img(`${p.slug}-tex.jpg`))}">
           <span class="work-n">${String(i + 1).padStart(2, '0')}</span>
           <span class="work-text">
-            <span class="work-title">${esc(p.title)} <span class="work-sub">${esc(p.subtitle)}</span></span>
+            <span class="work-title"><span class="work-name">${esc(p.title)}</span><span class="work-sub">${esc(p.subtitle)}</span></span>
             <span class="work-tag">${esc(p.tagline)}</span>
             <span class="work-meta">${p.tags.map((x) => `<span>${esc(x)}</span>`).join('')}${statusHtml(p)}</span>
           </span>

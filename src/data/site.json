@@ -64,7 +64,10 @@
       "aboutDo4": "Arabic and English interfaces that both feel native.",
       "notFoundTitle": "This page doesn't exist.",
       "notFoundLede": "The link may be old. Everything I've built is on the home page.",
-      "notFoundBack": "Go to the home page"
+      "notFoundBack": "Go to the home page",
+      "v1": "Portfolio v1",
+      "cursorDrag": "Drag",
+      "cursorOpen": "Open"
     },
     "ar": {
       "lang": "ar",
@@ -123,7 +126,10 @@
       "aboutDo4": "واجهات عربية وإنجليزية تبدو كلتاهما أصلية لا مترجمة.",
       "notFoundTitle": "هذه الصفحة غير موجودة.",
       "notFoundLede": "ربما يكون الرابط قديمًا. كل أعمالي موجودة في الصفحة الرئيسية.",
-      "notFoundBack": "العودة إلى الصفحة الرئيسية"
+      "notFoundBack": "العودة إلى الصفحة الرئيسية",
+      "v1": "النسخة الأولى (v1)",
+      "cursorDrag": "اسحب",
+      "cursorOpen": "افتح"
     }
   }
 }

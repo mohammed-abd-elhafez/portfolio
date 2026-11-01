@@ -22,7 +22,10 @@
 <script type="module" src="/portfolio/js/site.js"></script>
 </head>
 <body data-page="home">
-  <a class="skip" href="#main">Skip to content</a>
+  <canvas class="field" aria-hidden="true"></canvas>
+<div class="ring" aria-hidden="true"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="22.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M14 24h20M14 24l4-4M14 24l4 4M34 24l-4-4M34 24l-4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+<canvas class="peek" aria-hidden="true"></canvas>
+<a class="skip" href="#main">Skip to content</a>
 <header class="top">
   <a class="you" href="/portfolio/">Mohamed Abd Elhafez</a>
   <nav aria-label="Work">
@@ -67,10 +70,10 @@
       </div>
       <ol class="work-list">
       <li class="work-row">
-        <a href="/portfolio/projects/harbor-dashboard.html">
+        <a href="/portfolio/projects/harbor-dashboard.html" data-tex="/portfolio/img/work/harbor-dashboard-tex.jpg">
           <span class="work-n">01</span>
           <span class="work-text">
-            <span class="work-title">Harbor Goods <span class="work-sub">Store operations dashboard</span></span>
+            <span class="work-title"><span class="work-name">Harbor Goods</span><span class="work-sub">Store operations dashboard</span></span>
             <span class="work-tag">A dark, data-dense analytics dashboard for an online store, with a live order feed, a real API and six working pages.</span>
             <span class="work-meta"><span>React</span><span>TypeScript</span><span>Node.js</span></span>
           </span>
@@ -79,10 +82,10 @@
         </a>
       </li>
       <li class="work-row">
-        <a href="/portfolio/projects/m-pizza.html">
+        <a href="/portfolio/projects/m-pizza.html" data-tex="/portfolio/img/work/m-pizza-tex.jpg">
           <span class="work-n">02</span>
           <span class="work-text">
-            <span class="work-title">M Pizza <span class="work-sub">Arabic-first ordering platform</span></span>
+            <span class="work-title"><span class="work-name">M Pizza</span><span class="work-sub">Arabic-first ordering platform</span></span>
             <span class="work-tag">A pizza ordering system built Arabic-first: customer app, staff web tool and live order tracking.</span>
             <span class="work-meta"><span>Flutter</span><span>Arabic RTL</span><span>Full stack</span></span>
           </span>
@@ -91,10 +94,10 @@
         </a>
       </li>
       <li class="work-row">
-        <a href="/portfolio/projects/nawa-landing.html">
+        <a href="/portfolio/projects/nawa-landing.html" data-tex="/portfolio/img/work/nawa-landing-tex.jpg">
           <span class="work-n">03</span>
           <span class="work-text">
-            <span class="work-title">Nawa <span class="work-sub">Bilingual RTL landing page</span></span>
+            <span class="work-title"><span class="work-name">Nawa</span><span class="work-sub">Bilingual RTL landing page</span></span>
             <span class="work-tag">A landing page for a bilingual studio where Arabic and English are designed as equals, not translated.</span>
             <span class="work-meta"><span>React</span><span>TypeScript</span><span>RTL</span><span class="status">Independent concept, not a real studio</span></span>
           </span>
@@ -103,10 +106,10 @@
         </a>
       </li>
       <li class="work-row">
-        <a href="/portfolio/projects/landing-lab.html">
+        <a href="/portfolio/projects/landing-lab.html" data-tex="/portfolio/img/work/landing-lab-tex.jpg">
           <span class="work-n">04</span>
           <span class="work-text">
-            <span class="work-title">Landing Lab <span class="work-sub">Three directions, one product</span></span>
+            <span class="work-title"><span class="work-name">Landing Lab</span><span class="work-sub">Three directions, one product</span></span>
             <span class="work-tag">One fictional product page designed three ways, so hierarchy, tone and conversion can be compared side by side.</span>
             <span class="work-meta"><span>UX/UI</span><span>React</span><span>Accessibility</span><span class="status">Independent experiment</span></span>
           </span>
@@ -115,10 +118,10 @@
         </a>
       </li>
       <li class="work-row">
-        <a href="/portfolio/projects/fitness-tracker.html">
+        <a href="/portfolio/projects/fitness-tracker.html" data-tex="/portfolio/img/work/fitness-tracker-tex.jpg">
           <span class="work-n">05</span>
           <span class="work-text">
-            <span class="work-title">FitnessTracker <span class="work-sub">Private iOS health app</span></span>
+            <span class="work-title"><span class="work-name">FitnessTracker</span><span class="work-sub">Private iOS health app</span></span>
             <span class="work-tag">An offline-first iOS fitness tracker with health metrics, goals, charts and a home-screen widget. No data leaves the phone.</span>
             <span class="work-meta"><span>SwiftUI</span><span>HealthKit</span><span>iOS</span><span class="status">In progress: source code only</span></span>
           </span>
@@ -127,10 +130,10 @@
         </a>
       </li>
       <li class="work-row">
-        <a href="/portfolio/projects/new-e-commerce.html">
+        <a href="/portfolio/projects/new-e-commerce.html" data-tex="/portfolio/img/work/new-e-commerce-tex.jpg">
           <span class="work-n">06</span>
           <span class="work-text">
-            <span class="work-title">Storefront <span class="work-sub">Responsive e-commerce front end</span></span>
+            <span class="work-title"><span class="work-name">Storefront</span><span class="work-sub">Responsive e-commerce front end</span></span>
             <span class="work-tag">A responsive sportswear storefront with category browsing, promotional sections and cart interactions.</span>
             <span class="work-meta"><span>E-commerce</span><span>JavaScript</span><span>Responsive</span><span class="status">Front-end practice build</span></span>
           </span>
@@ -162,8 +165,8 @@
   </main>
 
   <footer class="foot">
-  <span>© 2026 Mohamed Abd Elhafez</span>
-  <span>Designed and built by hand. WebGL gallery, no frameworks.</span>
+  <span>© 2026 Mohamed Abd Elhafez · Portfolio v2</span>
+  <span>Designed and built by hand. WebGL gallery, no frameworks. <a href="/portfolio/v1/" hreflang="en">Portfolio v1</a></span>
 </footer>
 </body>
 </html>

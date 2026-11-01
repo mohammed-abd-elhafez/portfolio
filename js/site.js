@@ -46,6 +46,33 @@ document.addEventListener('click', (e) => {
 });
 window.addEventListener('pageshow', () => document.querySelectorAll('img[style*="view-transition"]').forEach((im) => (im.style.viewTransitionName = '')));
 
+// Mouse users: custom cursor and the reactive dot field.
+const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+if (finePointer) {
+  // a slim drag ring, only over the gallery
+  const ring = document.querySelector('.ring');
+  const gl = document.querySelector('.gl');
+  if (ring && gl) {
+    root.classList.add('ring-on');
+    gl.addEventListener('pointermove', (e) => {
+      if (e.pointerType !== 'mouse') return;
+      ring.style.translate = `${e.clientX}px ${e.clientY}px`;
+      ring.classList.add('on');
+    });
+    gl.addEventListener('pointerleave', () => ring.classList.remove('on'));
+    gl.addEventListener('pointerdown', () => ring.classList.add('down'));
+    addEventListener('pointerup', () => ring.classList.remove('down'));
+  }
+  // project screenshots that float beside the cursor over the work list
+  const peek = document.querySelector('.peek');
+  const list = document.querySelector('.work-list');
+  if (peek && list && window.innerWidth > 900 && !reducedMotion) {
+    import('./peek.js').then((m) => m.mountPeek(peek, list)).catch(() => {});
+  }
+  const field = document.querySelector('.field');
+  if (field && !reducedMotion) import('./field.js').then((m) => m.mountField(field)).catch(() => {});
+}
+
 // Gallery: WebGL only when it will run well. The image strip is the fallback.
 const gallery = document.querySelector('[data-gallery]');
 if (gallery) {
