@@ -49,32 +49,25 @@ window.addEventListener('pageshow', () => document.querySelectorAll('img[style*=
 // Mouse users: custom cursor and the reactive dot field.
 const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 if (finePointer) {
-  const cur = document.querySelector('.cur');
-  const label = cur && cur.querySelector('span');
-  if (cur) {
-    root.classList.add('has-cur');
-    let x = 0, y = 0, cx = 0, cy = 0, raf = 0;
-    const move = () => {
-      cx += (x - cx) * (reducedMotion ? 1 : 0.3); cy += (y - cy) * (reducedMotion ? 1 : 0.3);
-      cur.style.transform = `translate(${cx}px, ${cy}px)`;
-      raf = Math.abs(x - cx) + Math.abs(y - cy) > 0.3 ? requestAnimationFrame(move) : 0;
-    };
-    addEventListener('pointermove', (e) => {
+  // a slim drag ring, only over the gallery
+  const ring = document.querySelector('.ring');
+  const gl = document.querySelector('.gl');
+  if (ring && gl) {
+    root.classList.add('ring-on');
+    gl.addEventListener('pointermove', (e) => {
       if (e.pointerType !== 'mouse') return;
-      x = e.clientX; y = e.clientY;
-      if (!cur.classList.contains('on')) { cx = x; cy = y; }
-      cur.classList.add('on');
-      if (!raf) raf = requestAnimationFrame(move);
-      const t = e.target.closest && e.target.closest('a, button, .gl');
-      const isGl = t && t.classList.contains('gl');
-      const isRow = t && t.closest('.work-row');
-      const text = isGl ? cur.dataset.drag : isRow ? cur.dataset.open : '';
-      label.textContent = text;
-      cur.classList.toggle('label', !!text);
-      cur.classList.toggle('big', !!t && !text);
-    }, { passive: true });
-    document.addEventListener('pointerleave', () => cur.classList.remove('on'));
-    addEventListener('pointerdown', () => cur.animate && cur.animate([{ scale: 1 }, { scale: 0.85 }, { scale: 1 }], { duration: 260, easing: 'ease-out' }));
+      ring.style.translate = `${e.clientX}px ${e.clientY}px`;
+      ring.classList.add('on');
+    });
+    gl.addEventListener('pointerleave', () => ring.classList.remove('on'));
+    gl.addEventListener('pointerdown', () => ring.classList.add('down'));
+    addEventListener('pointerup', () => ring.classList.remove('down'));
+  }
+  // project screenshots that float beside the cursor over the work list
+  const peek = document.querySelector('.peek');
+  const list = document.querySelector('.work-list');
+  if (peek && list && window.innerWidth > 900 && !reducedMotion) {
+    import('./peek.js').then((m) => m.mountPeek(peek, list)).catch(() => {});
   }
   const field = document.querySelector('.field');
   if (field && !reducedMotion) import('./field.js').then((m) => m.mountField(field)).catch(() => {});
